@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>python学习笔记</title>
+      <link href="/2025/02/24/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/2025/02/24/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># map()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reduce()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># filter()</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>misc01（buuctf）</title>
       <link href="/2025/02/19/misc01/"/>
       <url>/2025/02/19/misc01/</url>
