@@ -4,16 +4,45 @@
   
     
     <entry>
-      <title>计算机网络-学习笔记【1】</title>
-      <link href="/2025/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-      <url>/2025/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      <title>网页前端学习笔记【1】</title>
+      <link href="/2025/02/28/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/02/28/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="计算机网络-学习笔记"><a href="#计算机网络-学习笔记" class="headerlink" title="计算机网络-学习笔记"></a>计算机网络-学习笔记</h1><p><em><code>通信技术</code>与<code>计算机技术</code>紧密结合的产物</em>，<em>计算机网络就是一种 <code>通信网络</code></em></p><h2 id="lv1-什么是计算机网络？"><a href="#lv1-什么是计算机网络？" class="headerlink" title="lv1_什么是计算机网络？"></a>lv1_什么是计算机网络？</h2><p><strong>定义：</strong>计算机网络就是互连的，自治的计算机集合</p><p>​        自治——无主从关系</p><p>​        互连——互联互通</p><p><strong>交换网络：</strong>通过交换网络连接主机，交换节点：路由器或交换机</p><p><strong>Internet：</strong></p><ol><li><p>全球最大的互联网络，ISP(Internet Service Provider）网络互连的“网络之网络”</p></li><li><p>数以百万计的互连的计算设备集合（通过通信链路联系在一起）</p></li><li><p>为网络应用提供通信服务的通信基础设施（Web，VoIP，Email，网络游戏，电子商务，社交网络）</p></li><li><p>为网络应用提供应用编程接口（API）：支持应用程序连接Internet，发送/接收数据，提供类似于邮政系统的数据传输服务。</p></li></ol><h2 id="lv2-网络协议"><a href="#lv2-网络协议" class="headerlink" title="lv2_网络协议"></a>lv2_网络协议</h2><p><em>仅有硬件（主机，链路，路由器……）连接，Internet不能顺畅运行，不能保证应用数据有序交付，还需要<code>协议</code></em></p><p><strong>定义：</strong>计算机网络中的数据交换必须遵守事先约定好的规则（任何通信或信息交换过程都需要规则）</p><ol><li><p><code>网络协议</code>，简称为协议，是为进行网络中的数据交换而建立的规则，标准或约定。</p></li><li><p>协议规定了通信实体之间所交换的消息的格式，意义，顺序以及针对收到信息或发生的事件所采取的“动作“</p></li><li><p><code>协议的三要素：</code></p><p>（1）语法：数据与控制信息的结构或格式，信号电平</p><p>（2）语义：需要发出何种控制信息，完成何种动作以及做出何种响应，差错控制</p><p>（3）时序：事件顺序，速度匹配</p><p>协议规范了网络中所有信息发送和接收过程（TCP，IP，HTTP，Skype，802.11）</p></li></ol><h2 id="lv3-计算机网络结构"><a href="#lv3-计算机网络结构" class="headerlink" title="lv3_计算机网络结构"></a>lv3_计算机网络结构</h2><ol><li>网络边缘：主机，网络应用</li><li>接入网络（物理介质）：有线或无线通信链路</li><li>网络核心（核心网络）：互联的路由器（或分组转发设备）</li></ol><p><strong>网络边缘：</strong></p><ol><li><p>主机（端系统）：</p><p>位于”网络边缘“</p><p>运行网络应用程序（Web,email）</p><ol><li><p>客户/服务器（client/server）应用模型：</p><p>客户发送请求，接收服务器响应（Web应用，文件传输FTP应用）</p></li></ol></li><li><p>对等（peer-peer,P2P）应用模型：</p><p>无（或不依赖）专用服务器</p><p>通信在对等实体之间直接进行</p></li></ol><p><strong>接入网络：</strong></p><p><em>将网络边缘接入核心网（边缘路由器）</em></p><p>例：</p><ol><li><p>住宅（家庭）接入网络</p><pre><code>   2. 机构接入网络（学校，企业等）   3. 移动接入网络</code></pre></li></ol><p>用户关心的是：</p><ol><li>带宽（bandwidth）</li><li>共享/独占？</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="网页前端-学习笔记【1】"><a href="#网页前端-学习笔记【1】" class="headerlink" title="网页前端-学习笔记【1】"></a>网页前端-学习笔记【1】</h1>]]></content>
       
       
       <categories>
           
           <category> web </category>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络-学习笔记【1】</title>
+      <link href="/2025/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="计算机网络-学习笔记"><a href="#计算机网络-学习笔记" class="headerlink" title="计算机网络-学习笔记"></a>计算机网络-学习笔记</h1><p><em><code>通信技术</code>与<code>计算机技术</code>紧密结合的产物</em>，<em>计算机网络就是一种 <code>通信网络</code></em></p><h2 id="lv1-什么是计算机网络？"><a href="#lv1-什么是计算机网络？" class="headerlink" title="lv1_什么是计算机网络？"></a>lv1_什么是计算机网络？</h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>​        计算机网络就是<code>互连</code>的，<code>自治</code>的计算机集合</p><p>​        自治——无主从关系</p><p>​        互连——互联互通</p><h3 id="交换网络："><a href="#交换网络：" class="headerlink" title="交换网络："></a>交换网络：</h3><p>通过交换网络连接主机，交换节点：路由器或交换机</p><h3 id="Internet："><a href="#Internet：" class="headerlink" title="Internet："></a>Internet：</h3><ol><li><p>全球最大的互联网络，ISP(Internet Service Provider）网络互连的“网络之网络”</p></li><li><p>数以百万计的互连的计算设备集合（通过通信链路联系在一起）</p></li><li><p>为网络应用提供通信服务的通信基础设施（Web，VoIP，Email，网络游戏，电子商务，社交网络）</p></li><li><p>为网络应用提供应用编程接口（API）：支持应用程序连接Internet，发送/接收数据，提供类似于邮政系统的数据传输服务。</p></li></ol><h2 id="lv2-网络协议"><a href="#lv2-网络协议" class="headerlink" title="lv2_网络协议"></a>lv2_网络协议</h2><p><em>仅有硬件（主机，链路，路由器……）连接，Internet不能顺畅运行，不能保证应用数据有序交付，还需要<code>协议</code></em></p><h3 id="定义：-1"><a href="#定义：-1" class="headerlink" title="定义："></a>定义：</h3><p>计算机网络中的数据交换必须遵守事先约定好的规则（任何通信或信息交换过程都需要规则）</p><ol><li><p><code>网络协议</code>，简称为协议，是为进行网络中的数据交换而建立的规则，标准或约定。</p></li><li><p>协议规定了通信实体之间所交换的消息的格式，意义，顺序以及针对收到信息或发生的事件所采取的“动作“</p></li><li><p><code>协议的三要素：</code></p><p>（1）语法：数据与控制信息的结构或格式，信号电平</p><p>（2）语义：需要发出何种控制信息，完成何种动作以及做出何种响应，差错控制</p><p>（3）时序：事件顺序，速度匹配</p><p>协议规范了网络中所有信息发送和接收过程（TCP，IP，HTTP，Skype，802.11）</p></li></ol><h2 id="lv3-计算机网络结构"><a href="#lv3-计算机网络结构" class="headerlink" title="lv3_计算机网络结构"></a>lv3_计算机网络结构</h2><ol><li>网络边缘：主机，网络应用</li><li>接入网络（物理介质）：有线或无线通信链路</li><li>网络核心（核心网络）：互联的路由器（或分组转发设备）</li></ol><h3 id="网络边缘："><a href="#网络边缘：" class="headerlink" title="网络边缘："></a><strong>网络边缘：</strong></h3><ol><li><p>主机（端系统）：</p><p>位于”网络边缘“</p><p>运行网络应用程序（Web,email）</p><ol><li><p>客户/服务器（client/server）应用模型：</p><p>客户发送请求，接收服务器响应（Web应用，文件传输FTP应用）</p></li></ol></li><li><p>对等（peer-peer,P2P）应用模型：</p><p>无（或不依赖）专用服务器</p><p>通信在对等实体之间直接进行</p></li></ol><h3 id="接入网络："><a href="#接入网络：" class="headerlink" title="接入网络："></a><strong>接入网络：</strong></h3><p><em>将网络边缘接入核心网（边缘路由器）</em></p><p>例：</p><ol><li>住宅（家庭）接入网络</li><li>机构接入网络（学校，企业等）</li><li>移动接入网络</li></ol><p>用户关心的是：</p><ol><li>带宽（bandwidth）（bps）</li><li>共享/独占？</li></ol><p>​        <strong>接入网络：数字用户线路（DSL）</strong></p><p><img src="https://pic1.imgdb.cn/item/67c28ce1d0e0a243d4089ae5.png" style="zoom:50%;" /></p><p>​        <strong>接入网络：电缆网络</strong></p><p><img src="https://pic1.imgdb.cn/item/67c28d5ed0e0a243d4089c8b.png" style="zoom:50%;" /></p><p>​        <strong>家庭接入网络</strong></p><p><img src="https://pic1.imgdb.cn/item/67c28de8d0e0a243d4089e57.png" style="zoom:50%;" /></p><p>​        <strong>机构（企业）接入网络</strong></p><p><img src="https://pic1.imgdb.cn/item/67c28e29d0e0a243d4089f09.png" style="zoom:50%;" /></p><p>​        <strong>无线接入网络</strong></p><p><img src="C:\Users\31715\AppData\Roaming\Typora\typora-user-images\image-20250301123440690.png" alt="image-20250301123440690" style="zoom:50%;" /></p><h3 id="网络核心："><a href="#网络核心：" class="headerlink" title="网络核心："></a><strong>网络核心：</strong></h3><p><em>互联的路由器网络</em></p><p>网络核心的关键功能：<code>路由</code>+<code>转发</code></p><p><code>路由</code>：确定分组从源到目的地的传输路径</p><p><code>转发</code>：将分组从路由器的输入端口交换至正确的输出端口</p><p>网络核心解决的基本问题：如何实现数据从源主机通过网络核心送达目的主机？</p><h2 id="lv4-Internet结构"><a href="#lv4-Internet结构" class="headerlink" title="lv4_Internet结构"></a>lv4_Internet结构</h2><p><em>网络之网络</em></p><ol><li><p>端系统通过接入ISP连接到Internet</p><p>家庭，公司和大学ISPs</p></li><li><p>接入ISP必须进一步互连</p><p>这样任意两个主机才可以互相发送分组</p></li><li><p>构成复杂的网络互连的网络</p><p>经济和国家政策是网络演进的主要驱动力</p></li><li><p>当前Internet结构</p><p>无人能给出精确描述</p></li></ol><p><img src="https://pic1.imgdb.cn/item/67c29193d0e0a243d408a386.png" style="zoom:50%;" /></p><h2 id="lv5-电路交换"><a href="#lv5-电路交换" class="headerlink" title="lv5_电路交换"></a>lv5_电路交换</h2><h3 id="数据交换："><a href="#数据交换：" class="headerlink" title="数据交换："></a>数据交换：</h3><p><em>（实现数据通过网络核心从源主机到达目的主机）</em></p><p><img src="https://pic1.imgdb.cn/item/67c29510d0e0a243d408a3f0.png" style="zoom:50%;" /></p><p><strong>数据交换的类型：</strong>电路交换，报文交换，分组交换</p><h3 id="电路交换："><a href="#电路交换：" class="headerlink" title="电路交换："></a>电路交换：</h3><p>最典型电路交换网络：<strong>电话网络</strong></p><p>电路交换的三个阶段：</p><ol><li>建立连接（呼叫/电路建立）</li><li>通信</li><li>释放连接</li></ol><p>特点：<code>独占资源</code>——两个电话之间在通话过程中建立起的电路所占有的通话资源不能被第三方占有！</p><p><img src="https://pic1.imgdb.cn/item/67c29528d0e0a243d408a3f9.png" style="zoom:50%;" /></p><h2 id="lv6-多路复用技术"><a href="#lv6-多路复用技术" class="headerlink" title="lv6_多路复用技术"></a>lv6_多路复用技术</h2><p>电路交换网络如何共享中继线？——多路复用（Multiplexing）</p><p><img src="https://pic1.imgdb.cn/item/67c294e2d0e0a243d408a3e4.png" style="zoom:50%;" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+          <category> 学习笔记 </category>
           
       </categories>
       
@@ -66,6 +95,8 @@
       <categories>
           
           <category> python </category>
+          
+          <category> 学习笔记 </category>
           
       </categories>
       
@@ -120,6 +151,8 @@
       <categories>
           
           <category> python </category>
+          
+          <category> 学习笔记 </category>
           
       </categories>
       
