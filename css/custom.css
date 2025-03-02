@@ -393,3 +393,14 @@
   /* 定义显示样式 */
   font-display: block;
 }
+
+
+/* 欢迎信息 */
+#welcome-info {
+  background: linear-gradient(45deg, #b9f4f3, #e3fbf9);
+  border-radius: 18px;
+  padding: 8px;
+}
+[data-theme="dark"] #welcome-info {
+  background: #212121;
+}
