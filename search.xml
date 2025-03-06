@@ -79,33 +79,6 @@
     
     
     <entry>
-      <title>python学习笔记</title>
-      <link href="/2025/02/24/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-      <url>/2025/02/24/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># map()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reduce()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># filter()</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><hr><hr><ol><li><strong><code>time.localtime</code> 的调用方式</strong>：<code>time.localtime()</code> 返回一个时间元组，而不是格式化字符串。你应该使用 <code>time.strftime</code> 来格式化时间。</li><li><strong>参数传递错误</strong>：<code>time.strftime</code> 的第一个参数是格式化字符串，第二个参数是时间元组。你当前的代码中，<code>time.localtime</code> 被错误地传递给了 <code>time.strftime</code>。</li></ol><p>以下是修正后的代码：</p><p>python</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">format = &#x27;%Y-%m-%d %H:%M:%S&#x27;</span><br><span class="line">local = time.localtime()</span><br><span class="line">print(time.strftime(format, local))</span><br></pre></td></tr></table></figure><h3 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h3><ul><li><code>time.localtime()</code> 返回当前本地时间的时间元组。</li><li><code>time.strftime(format, local)</code> 将时间元组 <code>local</code> 按照 <code>format</code> 指定的格式转换为字符串。</li></ul><p>这样，代码将正确输出当前时间的格式化字符串。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> 编程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>周报01</title>
       <link href="/2025/02/24/misc%E5%91%A8%E6%8A%A501/"/>
       <url>/2025/02/24/misc%E5%91%A8%E6%8A%A501/</url>
@@ -125,6 +98,33 @@
             <tag> CTF </tag>
             
             <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python学习笔记</title>
+      <link href="/2025/02/24/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/2025/02/24/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># map()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reduce()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># filter()</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><hr><hr><ol><li><strong><code>time.localtime</code> 的调用方式</strong>：<code>time.localtime()</code> 返回一个时间元组，而不是格式化字符串。你应该使用 <code>time.strftime</code> 来格式化时间。</li><li><strong>参数传递错误</strong>：<code>time.strftime</code> 的第一个参数是格式化字符串，第二个参数是时间元组。你当前的代码中，<code>time.localtime</code> 被错误地传递给了 <code>time.strftime</code>。</li></ol><p>以下是修正后的代码：</p><p>python</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">format = &#x27;%Y-%m-%d %H:%M:%S&#x27;</span><br><span class="line">local = time.localtime()</span><br><span class="line">print(time.strftime(format, local))</span><br></pre></td></tr></table></figure><h3 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h3><ul><li><code>time.localtime()</code> 返回当前本地时间的时间元组。</li><li><code>time.strftime(format, local)</code> 将时间元组 <code>local</code> 按照 <code>format</code> 指定的格式转换为字符串。</li></ul><p>这样，代码将正确输出当前时间的格式化字符串。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 编程 </tag>
             
         </tags>
       
