@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Solidity学习笔记</title>
-      <link href="/2025/03/27/Solidity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>/2025/03/27/Solidity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <title>Solidity学习日志01</title>
+      <link href="/2025/03/31/Solidity%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%971/"/>
+      <url>/2025/03/31/Solidity%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%971/</url>
       
-        <content type="html"><![CDATA[<h1 id="智能合约简介"><a href="#智能合约简介" class="headerlink" title="智能合约简介"></a>智能合约简介</h1><h3 id="存储示例"><a href="#存储示例" class="headerlink" title="存储示例"></a>存储示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: GPL-3.0</span><br><span class="line">pragma solidity &gt;=0.4.16 &lt;0.9.0;</span><br><span class="line"></span><br><span class="line">contract SimpleStorage &#123;</span><br><span class="line">    uint storedData;</span><br><span class="line"></span><br><span class="line">    function set(uint x) public &#123;</span><br><span class="line">        storedData = x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function get() public view returns (uint) &#123;</span><br><span class="line">        return storedData;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>第一行告诉你源代码是根据 GPL 版本 3.0 授权的。在默认发布源代码的环境中，机器可读的许可证说明符非常重要。</p><p>下一行指定源代码是为 Solidity 版本 0.4.16 或更新版本编写的，但不包括版本 0.9.0。这是为了确保合约不会与新的（破坏性）编译器版本编译，从而可能导致不同的行为。 <a href="https://learnblockchain.cn/docs/solidity/layout-of-source-files.html#pragma">Pragmas</a> 是关于如何处理源代码的编译器常见指令（例如 <a href="https://en.wikipedia.org/wiki/Pragma_once">pragma once</a>）。</p><p>在 Solidity 的意义上，合约是代码（其 <em>函数</em>）和数据（其 <em>状态</em>）的集合，位于以太坊区块链上的特定地址。</p><p> <code>uint storedData;</code> 这一行声明了一个名为 <code>storedData</code> 的状态变量，类型为 <code>uint</code> (256位符号整数)。 可以将其视为数据库中的一个单一插槽，可以通过调用管理数据库的代码的函数来查询和更改它。 在这个例子中，合约定义了可以用来修改或检索变量值的 <code>set</code> 和 <code>get</code> 函数。</p><p>要访问当前合约的成员（如状态变量），通常不需要添加 <code>this.</code> 前缀，只需通过其名称直接访问它。</p><p>这个合约目前除了（由于以太坊构建的基础设施）允许任何人存储一个单一的数字，该数字可以被世界上任何人访问，而没有（可行的）方法来阻止你发布这个数字，实际上并没有做太多事情。 任何人都可以再次调用 <code>set</code> 并使用不同的值覆盖你的数字，但这个数字仍然存储在区块链的历史中。 </p><h3 id="子货币示例"><a href="#子货币示例" class="headerlink" title="子货币示例"></a>子货币示例</h3><p>以下合约实现了最简单形式的加密货币。该合约仅允许其创建者创建新币。任何人都可以相互发送币，而无需注册用户名和密码，所需的只是以太坊密钥对。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: GPL-3.0</span><br><span class="line">pragma solidity ^0.8.26;</span><br><span class="line"></span><br><span class="line">// 仅通过 IR 编译</span><br><span class="line">contract Coin &#123;</span><br><span class="line">    // 关键字 &quot;public&quot; 使变量可从其他合约访问</span><br><span class="line">    address public minter;</span><br><span class="line">    mapping(address =&gt; uint) public balances;</span><br><span class="line"></span><br><span class="line">    // 事件允许客户端对你声明的特定合约更改做出反应</span><br><span class="line">    event Sent(address from, address to, uint amount);</span><br><span class="line"></span><br><span class="line">    // 构造函数代码仅在合约被创建时运行</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        minter = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 向地址发送一定数量的新创建的币</span><br><span class="line">    // 只能由合约创建者调用</span><br><span class="line">    function mint(address receiver, uint amount) public &#123;</span><br><span class="line">        require(msg.sender == minter);</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 错误允许你提供有关操作失败的原因的信息。</span><br><span class="line">    // 它们被返回给函数的调用者。</span><br><span class="line">    error InsufficientBalance(uint requested, uint available);</span><br><span class="line"></span><br><span class="line">    // 从任何调用者向地址发送一定数量的现有币</span><br><span class="line">    function send(address receiver, uint amount) public &#123;</span><br><span class="line">        require(amount &lt;= balances[msg.sender], InsufficientBalance(amount, balances[msg.sender]));</span><br><span class="line">        balances[msg.sender] -= amount;</span><br><span class="line">        balances[receiver] += amount;</span><br><span class="line">        emit Sent(msg.sender, receiver, amount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个合约引入了一些新概念，让我们逐一了解它们。</p><p><code>address public minter;</code> 这一行声明了一个类型为 <a href="https://learnblockchain.cn/docs/solidity/types.html#address">address</a> 的状态变量。 <code>address</code> 类型是一个 160 位的值，不允许任何算术操作。它适合存储合约的地址，或属于 <a href="https://learnblockchain.cn/docs/solidity/introduction-to-smart-contracts.html#accounts">external accounts</a> 的密钥对的公钥哈希。</p><p>关键字 <code>public</code> 自动生成一个函数，允许从合约外部访问状态变量的当前值。如果没有这个关键字，其他合约将无法访问该变量。 编译器生成的函数代码等同于以下内容（暂时忽略 <code>external</code> 和 <code>view</code>）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function minter() external view returns (address) &#123; return minter; &#125;</span><br></pre></td></tr></table></figure><p>可以自己添加一个像上面这样的函数，但将有一个函数和一个状态变量同名。你不需要这样做，编译器会为你处理。</p><p>下一行 <code>mapping(address =&gt; uint) public balances;</code> 也创建了一个公共状态变量，但它是一个更复杂的数据类型。 <a href="https://learnblockchain.cn/docs/solidity/types.html#mapping-types">mapping</a> 类型将地址映射到 <a href="https://learnblockchain.cn/docs/solidity/types.html#integers">unsigned integers</a>。</p><p>映射可以看作是 <a href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a>，它们在虚拟上初始化，使得每个可能的键从一开始就存在，并映射到一个字节表示全为零的值。 然而，无法获取映射的所有键的列表，也无法获取所有值的列表。记录你添加到映射中的内容，或在不需要此信息的上下文中使用它。或者更好的是，保持一个列表，或使用更合适的数据类型。</p><p>由 <code>public</code> 关键字创建的 <a href="https://learnblockchain.cn/docs/solidity/contracts.html#getter-functions">getter function</a> 在映射的情况下更复杂。它看起来像这样：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function balances(address account) external view returns (uint) &#123;</span><br><span class="line">    return balances[account];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>可以使用这个函数查询单个账户的余额。</p><p><code>event Sent(address from, address to, uint amount);</code> 这一行声明了一个 <a href="https://learnblockchain.cn/docs/solidity/contracts.html#events">“event”</a>，它在函数 <code>send</code> 的最后一行被触发。 以太坊客户端，如 Web 应用程序，可以在区块链上监听这些事件，而成本不高。只要它被触发，监听者就会收到参数 <code>from</code>、<code>to</code> 和 <code>amount</code>，这使得跟踪交易成为可能。 要监听此事件，可以使用以下 JavaScript 代码，该代码使用 <a href="https://github.com/web3/web3.js/">web3.js</a> 创建 <code>Coin</code> 合约对象，并且任何用户界面都可以调用上面自动生成的 <code>balances</code> 函数：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Coin.Sent().watch(&#123;&#125;, &#x27;&#x27;, function(error, result) &#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        console.log(&quot;Coin transfer: &quot; + result.args.amount +</span><br><span class="line">            &quot; coins were sent from &quot; + result.args.from +</span><br><span class="line">            &quot; to &quot; + result.args.to + &quot;.&quot;);</span><br><span class="line">        console.log(&quot;Balances now:\n&quot; +</span><br><span class="line">            &quot;Sender: &quot; + Coin.balances.call(result.args.from) +</span><br><span class="line">            &quot;Receiver: &quot; + Coin.balances.call(result.args.to));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p><a href="https://learnblockchain.cn/docs/solidity/contracts.html#constructor">constructor</a> 是在合约创建期间执行的特殊函数，之后无法调用。 在这种情况下，它永久存储创建合约的人的地址。 <code>msg</code> 变量（与 <code>tx</code> 和 <code>block</code> 一起）是一个 <a href="https://learnblockchain.cn/docs/solidity/units-and-global-variables.html#special-variables-functions">特殊的全局变量</a>，它包含允许访问区块链的属性。 <code>msg.sender</code> 始终是当前（外部）函数调用来源的地址。</p><p>构成合约的函数，以及用户和合约可以调用的函数是 <code>mint</code> 和 <code>send</code>。</p><p><code>mint</code> 函数将一定数量的新创建的硬币发送到另一个地址。 <a href="https://learnblockchain.cn/docs/solidity/control-structures.html#assert-and-require">require</a> 函数调用定义了条件，如果不满足则会撤销所有更改。 在这个例子中，<code>require(msg.sender == minter);</code> 确保只有合约的创建者可以调用 <code>mint</code>。 一般来说，创建者可以铸造任意数量的代币，但在某些时候，这将导致一种称为“溢出”的现象。 请注意，由于默认的 <a href="https://learnblockchain.cn/docs/solidity/control-structures.html#unchecked">Checked arithmetic</a>，如果表达式 <code>balances[receiver] += amount;</code> 溢出，则交易将被撤销，即当 <code>balances[receiver] + amount</code> 在任意精度算术中大于 <code>uint</code> 的最大值（<code>2**256 - 1</code>）时。这对于函数 <code>send</code> 中的语句 <code>balances[receiver] += amount;</code> 也是如此。</p><p><a href="https://learnblockchain.cn/docs/solidity/contracts.html#errors">Errors</a> 允许向调用者提供有关条件或操作失败的更多信息。 错误与 <a href="https://learnblockchain.cn/docs/solidity/control-structures.html#revert-statement">revert 语句</a> 一起使用。 <code>revert</code> 语句无条件地中止并撤销所有更改，类似于 <a href="https://learnblockchain.cn/docs/solidity/control-structures.html#assert-and-require-statements">require 方法</a>。 这两种方法都允许你提供错误的名称和附加数据，这些数据将提供给调用者（最终提供给前端应用程序或区块浏览器），以便更容易调试或响应失败。</p><p><code>send</code> 函数可以被任何人使用（已经拥有一些这些硬币的人）将硬币发送给其他人。 如果发送者没有足够的硬币发送，则 <code>if</code> 条件评估为 true。因此，<code>revert</code> 将导致操作失败，同时使用 <code>InsufficientBalance</code> 错误向发送者提供错误详细信息。</p><p><strong>备注:</strong></p><p>如果你使用此合约将硬币发送到一个地址，当你在区块链浏览器上查看该地址时，将不会看到任何内容，因为你发送硬币的记录和更改的余额仅存储在此特定硬币合约的数据存储中。 通过使用事件，你可以创建一个跟踪你新硬币的交易和余额的“区块链浏览器”，但你必须检查硬币合约地址，而不是硬币所有者的地址。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Solidity笔记01篇"><a href="#Solidity笔记01篇" class="headerlink" title="Solidity笔记01篇"></a>Solidity笔记01篇</h1>]]></content>
       
       
       <categories>
@@ -21,6 +21,106 @@
         <tags>
             
             <tag> blockchain </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XSS学习笔记</title>
+      <link href="/2025/03/31/XSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/03/31/XSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="XSS学习笔记"><a href="#XSS学习笔记" class="headerlink" title="XSS学习笔记"></a>XSS学习笔记</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql数据库学习</title>
+      <link href="/2025/03/31/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/03/31/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Mysql学习日志"><a href="#Mysql学习日志" class="headerlink" title="Mysql学习日志"></a>Mysql学习日志</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Sql注入学习</title>
+      <link href="/2025/03/31/sql%E6%B3%A8%E5%85%A5%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2025/03/31/sql%E6%B3%A8%E5%85%A5%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Sql注入学习"><a href="#Sql注入学习" class="headerlink" title="Sql注入学习"></a>Sql注入学习</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Sql语言基础</title>
+      <link href="/2025/03/31/sql%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+      <url>/2025/03/31/sql%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Sql语言基础"><a href="#Sql语言基础" class="headerlink" title="Sql语言基础"></a>Sql语言基础</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
             
         </tags>
       
