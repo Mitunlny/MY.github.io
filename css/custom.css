@@ -425,3 +425,49 @@ body::-webkit-scrollbar {
       background-color: transparent
   }
 }
+
+
+
+
+
+/*选中文本*/
+/* 全局选中文本样式 */
+::selection {
+  background-color: #ffcc00; /* 自定义选中背景颜色 */
+  color: #333333; /* 选中文本颜色 */
+}
+
+/* 针对特定元素的选中文本样式 */
+div::selection {
+  background-color: #ff6b6b; /* 自定义选中背景颜色 */
+  color: #ffffff; /* 选中文本颜色 */
+}
+
+p::selection {
+  background-color: #4ecdc4; /* 自定义选中背景颜色 */
+  color: #000000; /* 选中文本颜色 */
+}
+
+/* 针对代码块的选中文本样式 */
+pre::selection, code::selection {
+  background-color: #3498db; /* 自定义选中背景颜色 */
+  color: #ffffff; /* 选中文本颜色 */
+}
+
+/* 针对链接的选中文本样式 */
+a::selection {
+  background-color: #9b59b6; /* 自定义选中背景颜色 */
+  color: #ffffff; /* 选中文本颜色 */
+}
+
+/* 针对输入框的选中文本样式 */
+input::selection, textarea::selection {
+  background-color: #e74c3c; /* 自定义选中背景颜色 */
+  color: #ffffff; /* 选中文本颜色 */
+}
+
+/* 针对Firefox浏览器的选中文本样式 */
+::-moz-selection {
+  background-color: #ffcc00; /* 自定义选中背景颜色 */
+  color: #333333; /* 选中文本颜色 */
+}
