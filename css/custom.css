@@ -430,7 +430,76 @@ body::-webkit-scrollbar {
 
 
 
+/* 基础选中样式重置 */
+::selection {
+  background-color: #B5EAD7; /* 薄荷绿 */
+  color: #333;
+}
 
+/* 为不同元素添加不同的选中效果 */
+/* 段落选中 - 浅粉 */
+p::selection {
+  background-color: #FFD1DC; 
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+/* 标题选中 - 浅黄 */
+h1::selection, h2::selection, h3::selection {
+  background-color: #FFEE93;
+  background-image: linear-gradient(to right, #FFEE93, #FCF6BD);
+}
+
+/* 代码选中 - 浅蓝 */
+pre::selection, code::selection {
+  background-color: #C7EEFF;
+  border-radius: 2px;
+}
+
+/* 链接选中 - 浅紫色 */
+a::selection {
+  background-color: #E2D1F9;
+}
+
+/* 列表选中 - 浅橙色 */
+li::selection {
+  background-color: #FFC8A2;
+}
+
+/* 特殊强调选中效果 */
+.highlight::selection {
+  background-color: #B5EAD7;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(255,255,255,0.5) 5px,
+    rgba(255,255,255,0.5) 10px
+  );
+}
+
+/* 为深色模式准备的选中样式 */
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: #6C4A4A;
+    color: #f0f0f0;
+  }
+}
+
+/* 添加平滑过渡效果 */
+html {
+  transition: all 0.3s ease;
+}
+
+/* 可选：为选中文字添加轻微动画 */
+@keyframes selectedPulse {
+  0% { background-color: #B5EAD7; }
+  50% { background-color: #C7E9FF; }
+  100% { background-color: #B5EAD7; }
+}
+
+.animated-selection::selection {
+  animation: selectedPulse 3s infinite;
+}
 
 
 
