@@ -13,18 +13,20 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> CTF </category>
+          
+          <category> Pwn </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> CTF </tag>
+            <tag> 加密 </tag>
             
             <tag> Pwn </tag>
             
-            <tag> 加密 </tag>
+            <tag> CTF </tag>
             
         </tags>
       
@@ -69,16 +71,18 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> CTF </category>
+          
+          <category> Misc </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Misc </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Misc </tag>
             
         </tags>
       
@@ -96,7 +100,9 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> CTF </category>
+          
+          <category> Web </category>
           
       </categories>
       
@@ -148,14 +154,16 @@
       
       <categories>
           
-          <category> 学习资料 </category>
+          <category> CTF </category>
+          
+          <category> Web </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> web </tag>
+            <tag> Web </tag>
             
             <tag> RCE </tag>
             
@@ -175,7 +183,9 @@
       
       <categories>
           
-          <category> 学习资料 </category>
+          <category> CTF </category>
+          
+          <category> Web </category>
           
       </categories>
       
@@ -202,7 +212,9 @@
       
       <categories>
           
-          <category> 学习资料 </category>
+          <category> CTF </category>
+          
+          <category> Web </category>
           
       </categories>
       
@@ -256,6 +268,8 @@
           
           <category> 学习笔记 </category>
           
+          <category> 后端 </category>
+          
       </categories>
       
       
@@ -279,18 +293,20 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> CTF </category>
+          
+          <category> Pwn </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> CTF </tag>
+            <tag> 加密 </tag>
             
             <tag> Pwn </tag>
             
-            <tag> 加密 </tag>
+            <tag> CTF </tag>
             
         </tags>
       
@@ -309,6 +325,8 @@
       <categories>
           
           <category> 学习笔记 </category>
+          
+          <category> 前端 </category>
           
       </categories>
       
@@ -335,6 +353,8 @@
           
           <category> 学习笔记 </category>
           
+          <category> 后端 </category>
+          
       </categories>
       
       
@@ -360,12 +380,14 @@
           
           <category> 学习笔记 </category>
           
+          <category> Web </category>
+          
       </categories>
       
       
         <tags>
             
-            <tag> web </tag>
+            <tag> Web </tag>
             
         </tags>
       
@@ -438,6 +460,8 @@
       <categories>
           
           <category> CTF </category>
+          
+          <category> Reverse </category>
           
       </categories>
       

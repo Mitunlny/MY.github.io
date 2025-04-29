@@ -77,12 +77,12 @@
   }
   
   /* 首页侧栏卡片 */
-  /* #aside-content .card-widget {
+  #aside-content .card-widget {
     background: var(--trans-light);
     backdrop-filter: var(--backdrop-filter);
     border-radius: 18px;
     border: var(--border-style);
-  } */
+  }
   
   /* 文章页、归档页、普通页面 */
   /* div#post,
@@ -629,7 +629,7 @@ html {
 
 
 /* 鼠标样式 */
-#cursor {
+/* #cursor {
   position: fixed;
   width: 16px;
   height: 16px;
@@ -662,18 +662,49 @@ html {
   -moz-transform: scale(0.5);
   -ms-transform: scale(0.5);
   -o-transform: scale(0.5);
+} */
+/* 定义变量 */
+:root {
+  --theme-color: rgb(255, 178, 247); /* 蓝色 */
 }
 
+/* 鼠标样式测试 */
+#cursor {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background: var(--theme-color) !important;
+  border-radius: 8px;
+  opacity: 0.25;
+  z-index: 10086;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  transition-property: background, opacity, transform;
+}
+
+#cursor.hidden {
+  opacity: 0;
+}
+
+#cursor.hover {
+  opacity: 0.1;
+  transform: scale(2.5);
+}
+
+#cursor.active {
+  opacity: 0.5;
+  transform: scale(0.5);
+}
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://sourcebucket.s3.ladydaily.com/img/snowflower.webp);
+  background-image: url(/pic/c03.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://sourcebucket.s3.ladydaily.com/img/aurora.webp);
+  background-image: url(/pic/c04.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
