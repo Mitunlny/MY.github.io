@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>随记02</title>
-      <link href="/2025/05/05/%E9%9A%8F%E8%AE%B002/"/>
-      <url>/2025/05/05/%E9%9A%8F%E8%AE%B002/</url>
-      
-        <content type="html"><![CDATA[<h1 id="随记02"><a href="#随记02" class="headerlink" title="随记02"></a>随记02</h1><p>冰冰邦邦邦邦冰冰冰邦邦冰邦冰冰邦邦</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 个人 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 随记 </tag>
-            
-            <tag> 个人 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>BUU-Pwn 全解</title>
       <link href="/2025/04/27/buu-pwn%E5%85%A8%E8%A7%A3/"/>
       <url>/2025/04/27/buu-pwn%E5%85%A8%E8%A7%A3/</url>
@@ -49,11 +22,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> Pwn </tag>
             
             <tag> CTF </tag>
+            
+            <tag> 加密 </tag>
             
         </tags>
       
@@ -78,9 +51,38 @@
       
         <tags>
             
+            <tag> 个人 </tag>
+            
             <tag> 随记 </tag>
             
-            <tag> 个人 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Misc-从入门到精通</title>
+      <link href="/2025/04/23/misc-%E5%8E%8B%E7%BC%A9%E5%8C%85/"/>
+      <url>/2025/04/23/misc-%E5%8E%8B%E7%BC%A9%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Misc-从入门到精通"><a href="#Misc-从入门到精通" class="headerlink" title="Misc-从入门到精通"></a>Misc-从入门到精通</h1><hr><blockquote><p><strong><em>made by Mitunlny (M.Y)</em></strong></p></blockquote><hr><h2 id="了解什么是misc"><a href="#了解什么是misc" class="headerlink" title="了解什么是misc?"></a><strong>了解什么是misc?</strong></h2><p><strong><em>MISC（Miscellaneous）</em></strong> <em>是</em> <em>CTF<strong>（</strong>Capture The Flag**）竞赛中的一个重要类别，涵盖了各种与信息安全相关的杂项内容。MISC 考察基本知识，对安全技能的各个层面都有不同程度的涉及，可以在很大程度上启发思维</em></p><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><p><strong>综合性强</strong>：MISC 题目涉及面广，可能涵盖编码、隐写、流量分析、压缩包处理、取证等多个领域</p><p><strong>灵活性高</strong>：题目形式多样，解题方法灵活，需要选手具备快速理解、学习能力以及日常知识积累的广度和深度</p><p><strong>趣味性强</strong>：MISC 题目往往充满趣味性和挑战性，能够激发选手的思考和探索欲望</p><h3 id="常见题型："><a href="#常见题型：" class="headerlink" title="常见题型："></a>常见题型：</h3><p><strong>信息搜集</strong>：包括利用搜索引擎、Whois 查询、Shodan 等工具获取信息</p><p><strong>编码转换</strong>：涉及 ASCII 码、Base 家族、古典密码、摩斯电码、URL 编码等编码方式的转换</p><p><strong>隐写分析</strong>：包括图片隐写（如 LSB 隐写、EXIF 隐写）、音频隐写、文本隐写等</p><p><strong>流量分析</strong>：使用 Wireshark、tshark 等工具分析网络流量，提取有用信息</p><p><strong>文件处理</strong>：处理压缩包、损坏文件、文件头尾标识等</p><p><strong>取证分析</strong>：涉及内存取证、日志分析、注册表分析、磁盘分析等</p><p><strong>社会工程学</strong>：通过心理操控、信息搜集等手段获取目标信息</p><p><strong>脑洞题</strong>：需要发散思维，尝试多种解题方法</p><h2 id="如何学习？"><a href="#如何学习？" class="headerlink" title="如何学习？"></a>如何学习？</h2><p><strong>misc试炼之路：</strong></p><p><img src="https://pic1.imgdb.cn/item/680a2db658cb8da5c8c907c0.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Misc </tag>
             
         </tags>
       
@@ -284,37 +286,6 @@
     
     
     <entry>
-      <title>Pwn-从入门到精通</title>
-      <link href="/2025/03/31/pwn-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/"/>
-      <url>/2025/03/31/pwn-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/</url>
-      
-        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="09c576649ec4eb6db89eff856de6d7757fcec5fe800fb8d463372b5d19f6ad08">072c2e61e0fc96379b99a2ae58de6f03473f81ea37363c2853e21aadf430637c73f8be13e4297541b66f2f18a7255b2df15ff90ead27d5d31e4b3a645a197e07e66bb41756362588961b719b38684416326e6e4703b6307368062aba35c19b6b1ee42f9a24ae16ee59219d7bca58adc7194dc322f1ec6abb393b8a44bf8f33fdc411ad0ccd4866b29cb16f83d099154e270b9e8c6548fcbd1cae47184e645bc9a88c35ed3a3d1cdd84624d4025539a27734804996d5fc570a3b46dc3d0c0290d63d9ab6bf71e10ebc7108eeb978d265bad49e160f800f4cebd1126a887ede4dbd29af479726493ced5183258ee6fa7f120f02d20e310e38a64e882a10df0dd85c8e697372677c894eb003dd483e5206f551a99921623b0cd421c2f424ccbc681d3993fb6f7a52a0f3cbe8f24ce35e133e934af69f463728278dfc4f400225e9890c3056a00d79017664975b437a12f7f55fa516e2e94c36bb6ceee5391d3bc389c6c928f66ba0a243b4705a6e9cf89843272ff8f1df2740887fe1f55289c0c35d2bbefbd28bb98edec9e0b1a7ccdbe958c38b6e108a59ed183a178423655c9ccd2137c041ee5f2c9bc21c27b12bc7afe8242b902453d009df2ab0f4f203433c04f5a891116c0ebc36190a5bfa4832073096b41da68e3122864b8bf6353a100ad9c497e6782e6395445a35cd46526e77b8bfa90b807d2e9950acddec96df9accd7084a1750da43fb1f7cd635c8a0fe6b8902ab48dcac2653c8f9c50b1d358dde9dabcdab736bf5ca8fcb5f7094f74ff118c9a09bb21200b8d88b6a056a9b8a6e9e2a59479ba867cb1d9cd751a11f69db664a2d9c953f2fbf6b9588e6d12efc3fea7d606ff3327481ce92bc9bf32f8520be189f7f1df358efc55b67f96792ff307283a360f981877f580b10fefe582f4a4e96a384c8313bc6a3209210c6015529b4c19600492eb4574124f2eeb45304bd1</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">该文章已加密，请输入密码</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-          <category> Pwn </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 加密 </tag>
-            
-            <tag> Pwn </tag>
-            
-            <tag> CTF </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Mysql数据库基础</title>
       <link href="/2025/03/31/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E8%AE%B0/"/>
       <url>/2025/03/31/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E8%AE%B0/</url>
@@ -334,6 +305,37 @@
         <tags>
             
             <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Pwn-从入门到精通</title>
+      <link href="/2025/03/31/pwn-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/"/>
+      <url>/2025/03/31/pwn-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="09c576649ec4eb6db89eff856de6d7757fcec5fe800fb8d463372b5d19f6ad08">072c2e61e0fc96379b99a2ae58de6f03473f81ea37363c2853e21aadf430637c73f8be13e4297541b66f2f18a7255b2df15ff90ead27d5d31e4b3a645a197e07e66bb41756362588961b719b38684416326e6e4703b6307368062aba35c19b6b1ee42f9a24ae16ee59219d7bca58adc7194dc322f1ec6abb393b8a44bf8f33fdc411ad0ccd4866b29cb16f83d099154e270b9e8c6548fcbd1cae47184e645bc9a88c35ed3a3d1cdd84624d4025539a27734804996d5fc570a3b46dc3d0c0290d63d9ab6bf71e10ebc7108eeb978d265bad49e160f800f4cebd1126a887ede4dbd29af479726493ced5183258ee6fa7f120f02d20e310e38a64e882a10df0dd85c8e697372677c894eb003dd483e5206f551a99921623b0cd421c2f424ccbc681d3993fb6f7a52a0f3cbe8f24ce35e133e934af69f463728278dfc4f400225e9890c3056a00d79017664975b437a12f7f55fa516e2e94c36bb6ceee5391d3bc389c6c928f66ba0a243b4705a6e9cf89843272ff8f1df2740887fe1f55289c0c35d2bbefbd28bb98edec9e0b1a7ccdbe958c38b6e108a59ed183a178423655c9ccd2137c041ee5f2c9bc21c27b12bc7afe8242b902453d009df2ab0f4f203433c04f5a891116c0ebc36190a5bfa4832073096b41da68e3122864b8bf6353a100ad9c497e6782e6395445a35cd46526e77b8bfa90b807d2e9950acddec96df9accd7084a1750da43fb1f7cd635c8a0fe6b8902ab48dcac2653c8f9c50b1d358dde9dabcdab736bf5ca8fcb5f7094f74ff118c9a09bb21200b8d88b6a056a9b8a6e9e2a59479ba867cb1d9cd751a11f69db664a2d9c953f2fbf6b9588e6d12efc3fea7d606ff3327481ce92bc9bf32f8520be189f7f1df358efc55b67f96792ff307283a360f981877f580b10fefe582f4a4e96a384c8313bc6a3209210c6015529b4c19600492eb4574124f2eeb45304bd1</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">该文章已加密，请输入密码</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+          <category> Pwn </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pwn </tag>
+            
+            <tag> CTF </tag>
+            
+            <tag> 加密 </tag>
             
         </tags>
       
