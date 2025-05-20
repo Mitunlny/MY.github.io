@@ -96,7 +96,7 @@
   div#post,
   div#page,
   div#archive {
-    background: rgba(255, 232, 188, 0.067); /* 半透明白色背景 */
+    background: rgba(254, 242, 252, 0.974); /* 半透明白色背景 */
     backdrop-filter: blur(4.5px); /* 背景模糊效果 */
     border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明白色边框 */
     border-radius: 20px; /* 圆角边框 */
