@@ -8,21 +8,21 @@
       <link href="/2025/05/20/%E5%9F%BA%E4%BA%8Ehexo%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/"/>
       <url>/2025/05/20/%E5%9F%BA%E4%BA%8Ehexo%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[<h1 id="基于hexo框架的博客搭建及魔改美化教程"><a href="#基于hexo框架的博客搭建及魔改美化教程" class="headerlink" title="基于hexo框架的博客搭建及魔改美化教程"></a>基于hexo框架的博客搭建及魔改美化教程</h1><blockquote><p><strong>Introduction:</strong>本篇旨在提供一份完整的博客搭建教程，基于github的pages部署功能以及hexo博客框架</p></blockquote><p>特别感谢：<a href="https://www.fomal.cc/"><strong>Fomalhaut🥝</strong></a> 本人的技术博客多次参考其部署和美化教程</p><p>参考文章来自：<a href="https://www.fomal.cc/"><strong>Fomalhaut🥝</strong></a> | 鼓励支持原创</p><hr>]]></content>
+        <content type="html"><![CDATA[<h1 id="基于hexo框架的博客搭建及魔改美化教程"><a href="#基于hexo框架的博客搭建及魔改美化教程" class="headerlink" title="基于hexo框架的博客搭建及魔改美化教程"></a>基于hexo框架的博客搭建及魔改美化教程</h1><blockquote><p><strong>Introduction:</strong>本篇旨在提供一份完整的博客搭建教程，基于github的pages部署功能以及hexo博客框架</p></blockquote><p>特别感谢：<a href="https://www.fomal.cc/"><strong>Fomalhaut🥝</strong></a> 本人的技术博客多次参考其部署和美化教程</p><p>参考文章来自：<a href="https://www.fomal.cc/"><strong>Fomalhaut🥝</strong></a> | 鼓励支持原创</p><hr><h1 id="01-搭建篇"><a href="#01-搭建篇" class="headerlink" title="01 搭建篇"></a>01 搭建篇</h1>]]></content>
       
       
       <categories>
           
-          <category> 个人 </category>
+          <category> Web </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 随记 </tag>
+            <tag> web </tag>
             
-            <tag> 个人 </tag>
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -78,11 +78,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> Pwn </tag>
             
             <tag> CTF </tag>
+            
+            <tag> 加密 </tag>
             
         </tags>
       
@@ -107,9 +107,9 @@
       
         <tags>
             
-            <tag> 随记 </tag>
-            
             <tag> 个人 </tag>
+            
+            <tag> 随记 </tag>
             
         </tags>
       
@@ -248,9 +248,9 @@
       
         <tags>
             
-            <tag> web </tag>
-            
             <tag> RCE </tag>
+            
+            <tag> web </tag>
             
         </tags>
       
@@ -358,11 +358,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> Pwn </tag>
             
             <tag> CTF </tag>
+            
+            <tag> 加密 </tag>
             
         </tags>
       
