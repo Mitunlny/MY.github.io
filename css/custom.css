@@ -701,6 +701,11 @@ html {
   border-left: 4px solid #3498db;
   padding-left: 15px;
 }
+[data-theme="dark"] .post {
+  color: #ffffff;
+  border-left: 4px solid #3498db;
+  padding-left: 15px;
+}
 
 .post-title {
   color: #2c3e50;
@@ -710,6 +715,16 @@ html {
   font-size: 24px; /* 可以根据需要调整字体大小 */
   font-weight: bold; /* 加粗字体 */
   /*text-align: center;  居中对齐 */
+  animation: neon 2s infinite; /* 应用动画 */
+}
+/* 夜间模式下的标题样式 */
+[data-theme="dark"] .post-title {
+  color: #ffffff; /* 白色字体 */
+  border-bottom: 1px solid #444; /* 深色边框 */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 24px; /* 可以根据需要调整字体大小 */
+  font-weight: bold; /* 加粗字体 */
   animation: neon 2s infinite; /* 应用动画 */
 }
 
@@ -805,6 +820,27 @@ html {
       0 0 1px #ffeedd, /* 浅黄色 */
       0 0 2px #ffeedd,
       0 0 3px #ffeedd;
+  }
+}
+/* 夜间模式下的霓虹闪烁动画 */
+@keyframes neon {
+  0%, 100% {
+    text-shadow: 
+      0 0 1px #39c5bb, /* 浅蓝色 */
+      0 0 2px #39c5bb,
+      0 0 3px #39c5bb;
+  }
+  14% {
+    text-shadow: 
+      0 0 1px #7c6af3, /* 浅紫色 */
+      0 0 2px #7c6af3,
+      0 0 3px #7c6af3;
+  }
+  14.1% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
   }
 }
 
