@@ -117,6 +117,23 @@ if ((y == 2023 && m == 12 && dd == 22) || (y == 2024 && m == 12 && dd == 21) || 
         sessionStorage.setItem("isPopupWindow", "1");
     }
 }
+// 生日部分
+if ((m == 8 && dd == 4)) {//站长生日
+    if (sessionStorage.getItem("isPopupWindow") != "1") {
+        Swal.fire("今天是站长的生日！助站长永远快乐！🎂\n感谢你一直以来的支持！")
+        sessionStorage.setItem("isPopupWindow", "1");
+    }
+}
+if ((m == 6 && dd == 12)) {//yy生日
+    if (sessionStorage.getItem("isPopupWindow") != "1") {
+        Swal.fire("今天是Y&Y的生日！永远开心，永远快乐！🎂\n感谢一路有你")
+        sessionStorage.setItem("isPopupWindow", "1");
+    }
+}
+
+
+
+
 
 var lunar = calendarFormatter.solar2lunar();
 
