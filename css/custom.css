@@ -845,3 +845,112 @@ html {
 }
 
 
+/* 夜间模式下的文章内容样式 */
+[data-theme="dark"] .post {
+  color: #ffffff; /* 白色字体 */
+  border-left: 4px solid #39c5bb; /* 浅蓝色边框 */
+  padding-left: 15px;
+}
+/* 夜间模式下的文章内容标题样式 */
+[data-theme="dark"] .post-title {
+  color: #ffffff; /* 白色字体 */
+  border-bottom: 1px solid #444; /* 深色边框 */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 24px; /* 可以根据需要调整字体大小 */
+  font-weight: bold; /* 加粗字体 */
+  animation: neon 2s infinite; /* 应用动画 */
+}
+/* 夜间模式下的霓虹闪烁动画 */
+@keyframes neon {
+  0%, 100% {
+    text-shadow: 
+      0 0 1px #39c5bb, /* 浅蓝色 */
+      0 0 2px #39c5bb,
+      0 0 3px #39c5bb;
+  }
+  14% {
+    text-shadow: 
+      0 0 1px #7c6af3, /* 浅紫色 */
+      0 0 2px #7c6af3,
+      0 0 3px #7c6af3;
+  }
+  14.1% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  28% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  28.1% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  42% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  42.1% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  56% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  56.1% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  70% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+  70.1% {
+    text-shadow: 
+      0 0 1px #39c5bb, /* 浅蓝色 */
+      0 0 2px #39c5bb,
+      0 0 3px #39c5bb;
+  }
+  84% {
+    text-shadow: 
+      0 0 1px #39c5bb, /* 浅蓝色 */
+      0 0 2px #39c5bb,
+      0 0 3px #39c5bb;
+  }
+  84.1% {
+    text-shadow: 
+      0 0 1px #7c6af3, /* 浅紫色 */
+      0 0 2px #7c6af3,
+      0 0 3px #7c6af3;
+  }
+  98% {
+    text-shadow: 
+      0 0 1px #7c6af3, /* 浅紫色 */
+      0 0 2px #7c6af3,
+      0 0 3px #7c6af3;
+  }
+  98.1% {
+    text-shadow: 
+      0 0 1px #b7fdcc, /* 浅绿色 */
+      0 0 2px #b7fdcc,
+      0 0 3px #b7fdcc;
+  }
+}
