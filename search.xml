@@ -78,38 +78,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> Pwn </tag>
             
             <tag> CTF </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>随记01</title>
-      <link href="/2025/04/24/%E9%9A%8F%E8%AE%B001/"/>
-      <url>/2025/04/24/%E9%9A%8F%E8%AE%B001/</url>
-      
-        <content type="html"><![CDATA[<h1 id="随记01"><a href="#随记01" class="headerlink" title="随记01"></a>随记01</h1><p>愿路过这里的可爱的人们，心想事成，诸事顺遂！</p><p>嘻~</p><p>💕💕💕🔆🔆🔆</p><hr><p><strong>《草莓星云》</strong></p><p>踮起脚尖时，<br>风偷走了我的发绳，<br>于是整个下午，<br>都披着彩虹。</p><p>在数学课本的边角，<br>画满会跳舞的字母，<br>橡皮擦先生很苦恼——<br>“这些叛逆的小精灵！”</p><p>偷偷存下：<br>便利店叮咚的开门音，<br>云朵掉在咖啡杯的倒影，<br>和那个总在信箱前，<br>假装路过他的，<br>第101次心跳。</p><p>青春是，<br>裙摆扬起的弧度，<br>刚好接住一颗，<br>迷路的流星。</p><hr><p>🌸 <em>“铅笔屑是星星的碎片，日记本是银河的船票”</em> 🌸</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 个人 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 个人 </tag>
-            
-            <tag> 随记 </tag>
+            <tag> 加密 </tag>
             
         </tags>
       
@@ -230,35 +203,6 @@
     
     
     <entry>
-      <title>RCE视频</title>
-      <link href="/2025/04/14/RCE%E8%A7%86%E9%A2%91/"/>
-      <url>/2025/04/14/RCE%E8%A7%86%E9%A2%91/</url>
-      
-        <content type="html"><![CDATA[<h1 id="RCE-视频"><a href="#RCE-视频" class="headerlink" title="RCE-视频"></a>RCE-视频</h1><hr><p>~<strong><em>made by Mitunlny（M.Y）</em></strong>~</p><hr><blockquote><p>参考文章：</p><ul><li><p><a href="https://www.cnblogs.com/tomyyyyy/p/13905357.html">https://www.cnblogs.com/tomyyyyy/p/13905357.html</a></p></li><li><p><a href="https://blog.csdn.net/2302_76827504/article/details/130427099">https://blog.csdn.net/2302_76827504/article/details/130427099</a></p></li><li><p><a href="https://developer.aliyun.com/article/1224913">https://developer.aliyun.com/article/1224913</a></p></li><li><p><a href="https://blog.csdn.net/qq_45392044/article/details/145836455">https://blog.csdn.net/qq_45392044/article/details/145836455</a></p></li><li><a href="https://www.cnblogs.com/chir/p/13420148.html">https://www.cnblogs.com/chir/p/13420148.html</a></li></ul></blockquote><video width="100%" height="590" src="http://182.92.157.151/Mitunlny/CTF-WEB-RCE.mp4" controls="">]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> web </tag>
-            
-            <tag> RCE </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CTF-WEB-SQL注入</title>
       <link href="/2025/04/12/CTF-WEB-SQL%E6%B3%A8%E5%85%A5/"/>
       <url>/2025/04/12/CTF-WEB-SQL%E6%B3%A8%E5%85%A5/</url>
@@ -358,11 +302,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> Pwn </tag>
             
             <tag> CTF </tag>
+            
+            <tag> 加密 </tag>
             
         </tags>
       
@@ -539,7 +483,7 @@
       <link href="/2025/01/12/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/"/>
       <url>/2025/01/12/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/</url>
       
-        <content type="html"><![CDATA[<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>Hello，大家好！我M.Y (CZXH &amp; Cer)，一名来自UKFC-UKY的初级CTFer,这是我创建的第一篇博客。我将在我的博客上记录，分享我学习CTF及其他相关内容的所思所感。同时，我希望这里能成为我们交流思想，分享知识的桥梁。</p><hr><p>我是一位对CTF，编程，绘画，设计，游戏制作，图像处理，剪辑，摄影，写作等充满热情的大学生。我将在博客上持续记录和分享我学习的收获，希望通过努力，我能成为梦想中的一名CTF全栈手和网络安全领域的大神，同时能对大家在学习网络安全的道路上提供帮助，我相信分享和交流是我们不断进步的源泉。</p><p>我是创立C联（CZXH Association &amp; CZXH &amp; Clian &amp; 愚人的幻想交友会）的当代盟主，秉持对幻想创作的热爱和对无暇友谊的追求，为所有的成员打开新世界的大门，以不同的形式，实现属于我们心中的美好幻想，创造独属于自己的浪漫希望。</p><p>冰冰邦邦~~~~🎉🎉🎉</p><pre><code>写在后面：       在这个世界上，没有一蹴而就的成功，也没有一劳永逸的成就。每一个辉煌的时刻，都是无数个日夜努力的积累；每一个耀眼的成果，都是无数次挫折后的坚持（佚名）</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>Hello，大家好！我是Mitunlny|M.Y (CZXH &amp; Cer)，一名来自UKFC-UKY的初级CTFer,这是我创建的第一篇博客。我将在我的博客上记录，分享我学习CTF及其他相关内容的所思所感。同时，我希望这里能成为我们交流思想，分享知识的桥梁。</p><hr><p>我是一位对CTF，编程，绘画，设计，游戏制作，图像处理，剪辑，摄影，写作等充满热情的大学生。我将在博客上持续记录和分享我学习的收获，希望通过努力，我能成为梦想中的一名CTF全栈手和网络安全领域的大神，同时能对大家在学习网络安全的道路上提供帮助，我相信分享和交流是我们不断进步的源泉。</p><p>我是创立C联（CZXH Association &amp; CZXH &amp; Clian &amp; 愚人的幻想交友会）的当代盟主，秉持对幻想创作的热爱和对无暇友谊的追求，为所有的成员打开新世界的大门，以不同的形式，实现属于我们心中的美好幻想，创造独属于自己的浪漫希望。</p><p>冰冰邦邦~~~~🎉🎉🎉</p><pre><code>写在后面：       在这个世界上，没有一蹴而就的成功，也没有一劳永逸的成就。每一个辉煌的时刻，都是无数个日夜努力的积累；每一个耀眼的成果，都是无数次挫折后的坚持（佚名）</code></pre>]]></content>
       
       
       <categories>
