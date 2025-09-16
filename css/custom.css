@@ -728,61 +728,25 @@ html {
   /* animation: neon 2s infinite; 应用动画 */
 
 
+/* ===== Butterfly 首页大标题 纯改色 ===== */
+#site-title,
+#site-subtitle {
+  /* 彩虹文字本身颜色 */
+  color: transparent;
+  background: linear-gradient(90deg,
+              #ff0000,#ff7f00,#ffff00,#00ff00,#00ffff,#0000ff,#8b00ff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
 
-/*抖动*/
-/* 鼠标移动背景抖动效果 */
-.moving-bg {
-  position: relative;
-  overflow: hidden;
+  /* 仅保留颜色流动，无抖动 */
+  animation: color-flow 3s linear infinite;
 }
 
-.moving-bg-effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  transition: transform 0.1s ease-out;
-  will-change: transform; /* 优化性能 */
-  z-index: 0;
+@keyframes color-flow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
-
-#page-header .site-title,
-#page-header .site-subtitle,
-#page-header #site-title,
-#page-header #site-subtitle,
-#page-header .scroll-down {
-    position: relative;
-    z-index: 1;
-}
-
-#page-header #site-info {
-  position: relative;
-  z-index: 1;
-}
-
-/* 1. 让容器继续当参考系 */
-.moving-bg {
-  position: relative;
-  overflow: hidden;          /* 关键：把放大后的图多余部分裁掉 */
-}
-
-/* 2. 特效层放大 + 预偏移 */
-.moving-bg-effect {
-  position: absolute;
-  top:    -7.5%;             /* 放大 15 % 后反向偏移，上下左右各 7.5 % */
-  left:   -7.5%;
-  width:  115%;              /* 100 % + 7.5 % * 2 */
-  height: 115%;
-  background-position: center;
-  background-size: cover;
-  will-change: transform;
-  transition: none;          /* 去掉过渡，防止回弹出现重影 */
-}
-
-
 
 
 
