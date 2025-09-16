@@ -729,3 +729,60 @@ html {
 
 
 
+/*抖动*/
+/* 鼠标移动背景抖动效果 */
+.moving-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.moving-bg-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.1s ease-out;
+  will-change: transform; /* 优化性能 */
+  z-index: 0;
+}
+
+#page-header .site-title,
+#page-header .site-subtitle,
+#page-header #site-title,
+#page-header #site-subtitle,
+#page-header .scroll-down {
+    position: relative;
+    z-index: 1;
+}
+
+#page-header #site-info {
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. 让容器继续当参考系 */
+.moving-bg {
+  position: relative;
+  overflow: hidden;          /* 关键：把放大后的图多余部分裁掉 */
+}
+
+/* 2. 特效层放大 + 预偏移 */
+.moving-bg-effect {
+  position: absolute;
+  top:    -7.5%;             /* 放大 15 % 后反向偏移，上下左右各 7.5 % */
+  left:   -7.5%;
+  width:  115%;              /* 100 % + 7.5 % * 2 */
+  height: 115%;
+  background-position: center;
+  background-size: cover;
+  will-change: transform;
+  transition: none;          /* 去掉过渡，防止回弹出现重影 */
+}
+
+
+
+
+
