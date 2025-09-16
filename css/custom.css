@@ -1,26 +1,26 @@
 /* 页脚与头图透明 */
-#footer {
+/* #footer {
     background: transparent !important;
   }
   #page-header {
     background: transparent !important;
-  }
+  } */
   
   /* 白天模式遮罩透明 */
-  #footer::before {
+  /* #footer::before {
     background: transparent !important;
   }
   #page-header::before {
     background: transparent !important;
-  }
+  } */
   
   /* 夜间模式遮罩透明 */
-  [data-theme="dark"] #footer::before {
+  /* [data-theme="dark"] #footer::before {
     background: transparent !important;
   }
   [data-theme="dark"] #page-header::before {
     background: transparent !important;
-  }
+  } */
   
 /* 翻页按钮居中 */
 /* #pagination {
@@ -29,21 +29,21 @@
   } */
 
 /* 一级菜单居中 */
-#nav .menus_items {
+/* #nav .menus_items {
     position: absolute !important;
     width: fit-content !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-  }
+  } */
   /* 子菜单横向展示 */
-  #nav .menus_items .menus_item:hover .menus_item_child {
+  /* #nav .menus_items .menus_item:hover .menus_item_child {
     display: flex !important;
-  }
+  } */
   /* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */
-  .menus_items .menus_item:nth-child(2) .menus_item_child {
+  /* .menus_items .menus_item:nth-child(2) .menus_item_child {
     left: -125px;
   }
-  
+   */
 
 /* 夜间模式菜单栏发光字 */
 [data-theme="dark"] #nav .site-page,
@@ -69,20 +69,20 @@
 
   
   /* 首页文章卡片 */
-  #recent-posts > .recent-post-item {
+  /* #recent-posts > .recent-post-item {
     background: var(--trans-light);
     backdrop-filter: var(--backdrop-filter);
     border-radius: 25px;
     border: var(--border-style);
-  }
+  } */
   
   /* 首页侧栏卡片 */
-  #aside-content .card-widget {
+  /* #aside-content .card-widget {
     background: var(--trans-light);
     backdrop-filter: var(--backdrop-filter);
     border-radius: 18px;
     border: var(--border-style);
-  }
+  } */
   
   /* 文章页、归档页、普通页面 */
   /* div#post,
@@ -93,16 +93,16 @@
     border: var(--border-style);
     border-radius: 20px;
   } */
-  div#post,
+  /* div#post,
   div#page,
   div#archive {
     background: rgba(254, 242, 252, 0.974); /* 半透明白色背景 */
-    backdrop-filter: blur(4.5px); /* 背景模糊效果 */
-    border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明白色边框 */
-    border-radius: 20px; /* 圆角边框 */
-  }
-  
-  /* 导航栏 */
+    /* backdrop-filter: blur(4.5px); /* 背景模糊效果 */
+    /* border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明白色边框 */
+    /* border-radius: 20px; /* 圆角边框 */
+  /* } */
+
+  /* 导航栏
   #page-header.nav-fixed #nav {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: var(--backdrop-filter);
@@ -110,26 +110,26 @@
   
   [data-theme="dark"] #page-header.nav-fixed #nav {
     background: rgba(0, 0, 0, 0.7) !important;
-  }
+  } */
   
   /* 夜间模式遮罩 */
-  [data-theme="dark"] #recent-posts > .recent-post-item,
+  /* [data-theme="dark"] #recent-posts > .recent-post-item,
   [data-theme="dark"] #aside-content .card-widget,
   [data-theme="dark"] div#post,
   [data-theme="dark"] div#archive,
   [data-theme="dark"] div#page {
     background: var(--trans-dark);
-  }
+  } */
   
   
   /* 夜间模式页脚页头遮罩透明 */
-  [data-theme="dark"] #footer::before {
+  /* [data-theme="dark"] #footer::before {
     background: transparent !important;
   }
   [data-theme="dark"] #page-header::before {
     background: transparent !important;
   }
-  
+   */
   /* 阅读模式 */
   .read-mode #aside-content .card-widget {
     background: rgba(158, 204, 171, 0.5) !important;
@@ -168,7 +168,7 @@
   
   
 /* 波浪css */
-.main-hero-waves-area {
+/* .main-hero-waves-area {
   width: 100%;
   position: absolute;
   left: 0;
@@ -178,7 +178,7 @@
 .waves-area .waves-svg {
   width: 100%;
   height: 5rem;
-}
+} */
 /* Animation */
 
 .parallax > use {
@@ -516,12 +516,12 @@ html {
 
 
 /* 侧边栏个人信息卡片动态渐变色 */
-#aside-content > .card-widget.card-info {
+/* #aside-content > .card-widget.card-info {
   background: linear-gradient(
     -45deg,
-    #e8d8b9,
-    #eccec5,
-    #a3e9eb,
+    #8e7696,
+    #d9dbed,
+    #eed1e6,
     #bdbdf0,
     #eec1ea
   );
@@ -564,15 +564,15 @@ html {
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 /* 黑夜模式适配 */
-[data-theme="dark"] #aside-content > .card-widget.card-info {
+/* [data-theme="dark"] #aside-content > .card-widget.card-info {
   background: #191919ee;
-}
+} */
 
 /* 个人信息Follow me按钮 */
-#aside-content > .card-widget.card-info > #card-info-btn {
+/* #aside-content > .card-widget.card-info > #card-info-btn {
   background-color: #3eb8be;
   border-radius: 8px;
 }
@@ -629,7 +629,7 @@ html {
     background-position: 0% 50%;
   }
 }
-
+ */
 
 
 
@@ -638,12 +638,12 @@ html {
 
 
 /* 定义变量 */
-:root {
+/* :root {
   --theme-color: rgb(105, 195, 255); /* 蓝色 */
-}
+
 
 /* 鼠标样式测试 */
-#cursor {
+/* #cursor {
   position: fixed;
   width: 16px;
   height: 16px;
@@ -668,7 +668,7 @@ html {
 #cursor.active {
   opacity: 0.5;
   transform: scale(0.5);
-}
+} */
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
@@ -696,7 +696,7 @@ html {
   margin-bottom: 20px;
 }*/
 
-.post{
+/* .post{
   color: #000000;
   border-left: 4px solid #3498db;
   padding-left: 15px;
@@ -713,151 +713,19 @@ html {
   padding-bottom: 10px;
   margin-bottom: 20px;
   font-size: 24px; /* 可以根据需要调整字体大小 */
-  font-weight: bold; /* 加粗字体 */
+  /* font-weight: bold; 加粗字体 */
   /*text-align: center;  居中对齐 */
-  animation: neon 2s infinite; /* 应用动画 */
-}
+  /* animation: neon 2s infinite; 应用动画 */
+
 /* 夜间模式下的标题样式 */
-[data-theme="dark"] .post-title {
-  color: #ffffff; /* 白色字体 */
-  border-bottom: 1px solid #444; /* 深色边框 */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  font-size: 24px; /* 可以根据需要调整字体大小 */
-  font-weight: bold; /* 加粗字体 */
-  animation: neon 2s infinite; /* 应用动画 */
-}
+/* [data-theme="dark"] .post-title {
+  /* color: #ffffff; /* 白色字体 */
+  /* border-bottom: 1px solid #444; /* 深色边框 */
+  /* padding-bottom: 10px;
+  margin-bottom: 20px; */
+  /* font-size: 24px; 可以根据需要调整字体大小 */
+  /* font-weight: bold; 加粗字体 */
+  /* animation: neon 2s infinite; 应用动画 */
 
 
-/* 定义霓虹闪烁动画 */
-@keyframes neon {
-  0%, 100% {
-    text-shadow: 
-      0 0 1px #ffccff, /* 浅粉紫色 */
-      0 0 2px #ffccff,
-      0 0 3px #ffccff;
-  }
-  14% {
-    text-shadow: 
-      0 0 1px #ffccff, /* 浅粉紫色 */
-      0 0 2px #ffccff,
-      0 0 3px #ffccff;
-  }
-  14.1% {
-    text-shadow: 
-      0 0 1px #ffddcc, /* 浅橙色 */
-      0 0 2px #ffddcc,
-      0 0 3px #ffddcc;
-  }
-  28% {
-    text-shadow: 
-      0 0 1px #ffddcc, /* 浅橙色 */
-      0 0 2px #ffddcc,
-      0 0 3px #ffddcc;
-  }
-  28.1% {
-    text-shadow: 
-      0 0 1px #ffeedd, /* 浅黄色 */
-      0 0 2px #ffeedd,
-      0 0 3px #ffeedd;
-  }
-  42% {
-    text-shadow: 
-      0 0 1px #ffeedd, /* 浅黄色 */
-      0 0 2px #ffeedd,
-      0 0 3px #ffeedd;
-  }
-  42.1% {
-    text-shadow: 
-      0 0 1px #e6f7ff, /* 浅蓝色 */
-      0 0 2px #e6f7ff,
-      0 0 3px #e6f7ff;
-  }
-  56% {
-    text-shadow: 
-      0 0 1px #e6f7ff, /* 浅蓝色 */
-      0 0 2px #e6f7ff,
-      0 0 3px #e6f7ff;
-  }
-  56.1% {
-    text-shadow: 
-      0 0 1px #e6f7ff, /* 浅蓝色 */
-      0 0 2px #e6f7ff,
-      0 0 3px #e6f7ff;
-  }
-  70% {
-    text-shadow: 
-      0 0 1px #e6f7ff, /* 浅蓝色 */
-      0 0 2px #e6f7ff,
-      0 0 3px #e6f7ff;
-  }
-  70.1% {
-    text-shadow: 
-      0 0 1px #ffccff, /* 浅粉紫色 */
-      0 0 2px #ffccff,
-      0 0 3px #ffccff;
-  }
-  84% {
-    text-shadow: 
-      0 0 1px #ffccff, /* 浅粉紫色 */
-      0 0 2px #ffccff,
-      0 0 3px #ffccff;
-  }
-  84.1% {
-    text-shadow: 
-      0 0 1px #ffddcc, /* 浅橙色 */
-      0 0 2px #ffddcc,
-      0 0 3px #ffddcc;
-  }
-  98% {
-    text-shadow: 
-      0 0 1px #ffddcc, /* 浅橙色 */
-      0 0 2px #ffddcc,
-      0 0 3px #ffddcc;
-  }
-  98.1% {
-    text-shadow: 
-      0 0 1px #ffeedd, /* 浅黄色 */
-      0 0 2px #ffeedd,
-      0 0 3px #ffeedd;
-  }
-}
-/* 夜间模式下的霓虹闪烁动画 */
-@keyframes neon {
-  0%, 100% {
-    text-shadow: 
-      0 0 1px #39c5bb, /* 浅蓝色 */
-      0 0 2px #39c5bb,
-      0 0 3px #39c5bb;
-  }
-  14% {
-    text-shadow: 
-      0 0 1px #7c6af3, /* 浅紫色 */
-      0 0 2px #7c6af3,
-      0 0 3px #7c6af3;
-  }
-  14.1% {
-    text-shadow: 
-      0 0 1px #b7fdcc, /* 浅绿色 */
-      0 0 2px #b7fdcc,
-      0 0 3px #b7fdcc;
-  }
-}
 
-
-/* 夜间模式下的文章内容样式 */
-[data-theme="dark"] .post {
-  color: #ffffff; /* 白色字体 */
-  border-left: 4px solid #39c5bb; /* 浅蓝色边框 */
-  padding-left: 15px;
-}
-/* 夜间模式下的文章内容标题样式 */
-[data-theme="dark"] .post-title {
-  color: #ffffff; /* 白色字体 */
-  border-bottom: 1px solid #444; /* 深色边框 */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  font-size: 24px; /* 可以根据需要调整字体大小 */
-  font-weight: bold; /* 加粗字体 */
-  animation: neon 2s infinite; /* 应用动画 */
-}
