@@ -181,7 +181,7 @@
 } */
 /* Animation */
 
-.parallax > use {
+/* .parallax > use {
   animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 .parallax > use:nth-child(1) {
@@ -203,9 +203,9 @@
   animation-delay: -5s;
   animation-duration: 20s;
   fill: #fbe2ff;
-}
+} */
 /* 黑色模式背景 */
-[data-theme="dark"] .parallax > use:nth-child(1) {
+/* [data-theme="dark"] .parallax > use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
   fill: #18171dc8;
@@ -235,12 +235,12 @@
   }
 }
 /*Shrinking for mobile*/
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .waves-area .waves-svg {
     height: 40px;
     min-height: 40px;
   }
-}
+} */ 
 
 
 /* 头像呼吸灯 */
