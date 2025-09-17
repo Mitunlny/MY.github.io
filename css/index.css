@@ -2940,7 +2940,7 @@ table td {
   border: var(--style-border-always);
 }
 *::selection {
-  background: #2128bd;
+  background: #c6d7f7;
   color: #f7f7f7;
 }
 button {
