@@ -728,25 +728,67 @@ html {
   /* animation: neon 2s infinite; 应用动画 */
 
 
-/* ===== Butterfly 首页大标题 纯改色 ===== */
+/* 基础文字发光效果 - 白色光晕 */
 #site-title,
-#site-subtitle {
-  /* 彩虹文字本身颜色 */
-  color: transparent;
-  background: linear-gradient(90deg,
-              #ff0000,#ff7f00,#ffff00,#00ff00,#00ffff,#0000ff,#8b00ff);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  /* 仅保留颜色流动，无抖动 */
-  animation: color-flow 3s linear infinite;
+#subtitle {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #be7bb8, 0 0 40px #be7bb8, 0 0 50px #be7bb8, 0 0 60px #be7bb8, 0 0 70px #be7bb8;
 }
 
-@keyframes color-flow {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+/* 霓虹灯效果 - 蓝色调 */
+#site-title.neon,
+#subtitle.neon {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
 }
 
+/* 动画发光效果 - 闪烁 */
+@keyframes blink {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa; }
+    50% { opacity: 0.7; text-shadow: 0 0 20px #ff00aa, 0 0 30px #ff00aa, 0 0 40px #ff00aa; }
+}
+#site-title.animate,
+#subtitle.animate {
+    animation: blink 3s infinite alternate;
+}
 
+/* 模糊发光背景效果 */
+#site-title.blur,
+#subtitle.blur {
+    color: rgba(255, 255, 255, 0.9); /* 文字稍微透明 */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 2px 2px 6px rgba(0, 0, 0, 0.5); /* 光晕和一点立体感 */
+}
 
+/* 主标题发光效果 */
+#page-header .site-title, 
+#page-header h1, 
+.hero .title {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(230, 0, 115, 0.6),
+                 0 0 40px rgba(230, 0, 115, 0.4);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* 副标题发光效果 */
+#page-header .site-subtitle,
+#page-header .subtitle {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7),
+                 0 0 15px rgba(255, 255, 255, 0.4),
+                 0 0 25px rgba(0, 115, 230, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* 发光动画 */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                     0 0 20px rgba(255, 255, 255, 0.5),
+                     0 0 30px rgba(230, 0, 115, 0.6);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 
+                     0 0 25px rgba(255, 255, 255, 0.6),
+                     0 0 35px rgba(230, 0, 115, 0.7),
+                     0 0 45px rgba(230, 0, 115, 0.5);
+    }
+}
