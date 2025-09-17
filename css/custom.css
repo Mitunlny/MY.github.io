@@ -758,14 +758,13 @@ html {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 2px 2px 6px rgba(0, 0, 0, 0.5); /* 光晕和一点立体感 */
 }
 
-/* 主标题发光效果 */
-#page-header .site-title, 
-#page-header h1, 
-.hero .title {
+/* 首页头部区域的主标题发光 */
+body[data-page="home"] #page-header .site-title,
+body.home #page-header .site-title,
+#page-header:not(.post-bg) h1 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
                  0 0 20px rgba(255, 255, 255, 0.5),
-                 0 0 30px rgba(230, 0, 115, 0.6),
-                 0 0 40px rgba(230, 0, 115, 0.4);
+                 0 0 30px rgba(230, 0, 115, 0.6);
     animation: glow 2s ease-in-out infinite alternate;
 }
 
@@ -792,3 +791,5 @@ html {
                      0 0 45px rgba(230, 0, 115, 0.5);
     }
 }
+
+
