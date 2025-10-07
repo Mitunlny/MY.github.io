@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2025/10/06/%E8%AE%B0CTF2025%E4%B8%80%E9%81%93suid%E6%8F%90%E6%9D%83/"/>
+      <url>/2025/10/06/%E8%AE%B0CTF2025%E4%B8%80%E9%81%93suid%E6%8F%90%E6%9D%83/</url>
+      
+        <content type="html"><![CDATA[<h1 id="记-CTF2025一道suid提权"><a href="#记-CTF2025一道suid提权" class="headerlink" title="记?CTF2025一道suid提权"></a>记?CTF2025一道suid提权</h1><p>连接靶机，先ls一下，可以发现note.txt</p><p>cat得到提示：</p><p><img src="https://pic1.imgdb.cn/item/68e36219c5157e1a8859a3b7.png" alt=""></p><p>我们知道了这是一道suid提权（为什么要放misc里面，而且是新生赛……</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记一道TLS加密流量分析</title>
       <link href="/2025/09/14/%E8%AE%B0%E4%B8%80%E9%81%93TLS%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
       <url>/2025/09/14/%E8%AE%B0%E4%B8%80%E9%81%93TLS%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</url>
