@@ -3960,11 +3960,11 @@ body[data-type='about'] #web_bg {
   -webkit-justify-content: center;
   justify-content: center;
   color: var(--anzhiyu-white);
-  background: -webkit-linear-gradient(330deg, #5b27ff 0, #00d4ff 100%);
-  background: -moz-linear-gradient(330deg, #5b27ff 0, #00d4ff 100%);
-  background: -o-linear-gradient(330deg, #5b27ff 0, #00d4ff 100%);
-  background: -ms-linear-gradient(330deg, #5b27ff 0, #00d4ff 100%);
-  background: linear-gradient(120deg, #5b27ff 0, #00d4ff 100%);
+  background: -webkit-linear-gradient(330deg, #e4a4ff 0, #98d9ff 100%);
+  background: -moz-linear-gradient(330deg, #e4a4ff 0, #98d9ff 100%);
+  background: -o-linear-gradient(330deg, #e4a4ff 0, #98d9ff 100%);
+  background: -ms-linear-gradient(330deg, #e4a4ff 0, #98d9ff 100%);
+  background: linear-gradient(120deg, #e4a4ff 0, #98d9ff 100%);
   background-size: 200%;
   -webkit-animation: gradient 15s ease infinite;
   -moz-animation: gradient 15s ease infinite;
@@ -5381,7 +5381,7 @@ body[data-type='about'] #web_bg {
   position: relative;
   height: 315px;
   width: 100%;
-  background: #2128bd;
+  background: #ffcef7;
   overflow: hidden;
 }
 .shape {
@@ -5390,7 +5390,7 @@ body[data-type='about'] #web_bg {
   border-radius: 50%;
 }
 .shape.shape-1 {
-  background: #005ffe;
+  background: #bd99eb;
   width: 650px;
   height: 650px;
   margin: -325px 0 0 -325px;
@@ -5402,7 +5402,7 @@ body[data-type='about'] #web_bg {
   margin: -220px 0 0 -220px;
 }
 .shape.shape-3 {
-  background: #ffcc57;
+  background: #57c1ff;
   width: 270px;
   height: 270px;
   margin: -135px 0 0 -135px;
