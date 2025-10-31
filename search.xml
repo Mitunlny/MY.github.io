@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>深入理解zip伪加密</title>
+      <link href="/2025/10/31/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3zip%E4%BC%AA%E5%8A%A0%E5%AF%86/"/>
+      <url>/2025/10/31/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3zip%E4%BC%AA%E5%8A%A0%E5%AF%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="深入理解zip伪加密"><a href="#深入理解zip伪加密" class="headerlink" title="深入理解zip伪加密"></a>深入理解zip伪加密</h1><blockquote><p>前言: 之前一直认为,zip的伪加密也就是判断奇偶，改一改加密标志位那么简单,甚至可以直接上手拿工具去梭,感谢经过C3ngH师傅指正后,才意识到其中原理的重要性. 对其深入研究后, 记录下这篇文章。</p></blockquote><h2 id="zip伪加密原理"><a href="#zip伪加密原理" class="headerlink" title="zip伪加密原理"></a>zip伪加密原理</h2><p>了解伪加密之前，我们需要深入理解zip的文件结构。</p><p>一个zip通常由三部分组成，即： <code>压缩源文件数据区</code>  <code>压缩源文件目录区</code>  <code>压缩源文件目录结束标志</code></p><p>如图：</p><p><img src="http://pic.czxh.top/pic/202510311651394.png" alt="image-20251031165119300"></p><h3 id="压缩源文件数据区："><a href="#压缩源文件数据区：" class="headerlink" title="压缩源文件数据区："></a>压缩源文件数据区：</h3><div class="table-container"><table><thead><tr><th style="text-align:center">HEX</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">50 4B 03 04</td><td style="text-align:center">这是zip的头文件标记（0x04034b50），对应文本PK</td></tr><tr><td style="text-align:center">14 00</td><td style="text-align:center">解压文件所需的 pkware 版本</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">全局方式位标记（有无加密）</td></tr><tr><td style="text-align:center">08 00</td><td style="text-align:center">压缩方式 （0x0008，对应Deflated）</td></tr><tr><td style="text-align:center">AA 84</td><td style="text-align:center">最后修改文件时间 （遵循MS-DOS时间格式）</td></tr><tr><td style="text-align:center">5F 5B</td><td style="text-align:center">最后修改文件日期 （遵循MS-DOS时间格式）</td></tr><tr><td style="text-align:center">6A B1 EC C9</td><td style="text-align:center">CRC-32校验和（0xC9ECB16A）</td></tr><tr><td style="text-align:center">19 00 00 00</td><td style="text-align:center">压缩后尺寸</td></tr><tr><td style="text-align:center">18 00 00 00</td><td style="text-align:center">未压缩尺寸</td></tr><tr><td style="text-align:center">08 00</td><td style="text-align:center">文件名长度</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">扩展记录长度</td></tr><tr><td style="text-align:center">66 6C 61 67 2E 74 78 74</td><td style="text-align:center">文件名（对应flag.txt）</td></tr></tbody></table></div><h3 id="压缩源文件目录区"><a href="#压缩源文件目录区" class="headerlink" title="压缩源文件目录区"></a>压缩源文件目录区</h3><div class="table-container"><table><thead><tr><th style="text-align:center">HEX</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">50 4B 01 02</td><td style="text-align:center">目录中文件文件头标记</td></tr><tr><td style="text-align:center">1F 00</td><td style="text-align:center">压缩使用的 pkware 版本</td></tr><tr><td style="text-align:center">14 00</td><td style="text-align:center">解压文件所需 pkware 版本</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">全局方式位标记（有无加密）</td></tr><tr><td style="text-align:center">08 00</td><td style="text-align:center">压缩方式</td></tr><tr><td style="text-align:center">AA 84</td><td style="text-align:center">最后修改文件时间</td></tr><tr><td style="text-align:center">5F 5B</td><td style="text-align:center">最后修改文件日期</td></tr><tr><td style="text-align:center">6A B1 EC C9</td><td style="text-align:center">CRC-32校验和</td></tr><tr><td style="text-align:center">16 00 00 00</td><td style="text-align:center">压缩后尺寸</td></tr><tr><td style="text-align:center">18 00 00 00</td><td style="text-align:center">未压缩尺寸</td></tr><tr><td style="text-align:center">08 00</td><td style="text-align:center">文件名长度</td></tr><tr><td style="text-align:center">24 00</td><td style="text-align:center">扩展字段长度</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">文件注释长度（0 字节，表示没有注释）</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">磁盘开始号（0，表示文件不跨磁盘）</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">内部文件属性</td></tr><tr><td style="text-align:center">20 00 00 00</td><td style="text-align:center">外部文件属性</td></tr><tr><td style="text-align:center">00 00 00 00</td><td style="text-align:center">局部头部偏移量</td></tr><tr><td style="text-align:center">66 6C 61 67 2E 74 78 74</td><td style="text-align:center">文件名（对应flag.txt）</td></tr><tr><td style="text-align:center">0A 00 20 00 … DC 01</td><td style="text-align:center">扩展字段（长度为36字节，这是由上面的扩展字段长度24 00决定的。这是ZIP64、NTFS时间戳等扩展信息的存放位置）</td></tr></tbody></table></div><h3 id="压缩源文件目录结束标志"><a href="#压缩源文件目录结束标志" class="headerlink" title="压缩源文件目录结束标志"></a>压缩源文件目录结束标志</h3><div class="table-container"><table><thead><tr><th style="text-align:center">HEX</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">50 4B 05 06</td><td style="text-align:center">目录结束标记</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">当前磁盘编号（因为该ZIP文件没有分卷，不跨越多张磁盘，所以从0开始）</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">目录区开始磁盘编号 （同上，表示中央目录也位于第一个磁盘上）</td></tr><tr><td style="text-align:center">01 00</td><td style="text-align:center">本磁盘上纪录总数 （表示当前磁盘上有1条中央目录记录）</td></tr><tr><td style="text-align:center">01 00</td><td style="text-align:center">目录区中纪录总数 （这是整个ZIP文件中最重要的计数之一，它表明这个ZIP文件中总共包含1个文件）</td></tr><tr><td style="text-align:center">5A 00 00 00</td><td style="text-align:center">目录区尺寸大小 （十进制90字节。这指的是从50 4B 01 02开始到中央目录记录结束的所有字节长度）</td></tr><tr><td style="text-align:center">3C 00 00 00</td><td style="text-align:center">目录区对第一张磁盘的偏移量 （中央目录相对于存档起始位置的偏移量。小端序，0x0000003C = 十进制 60 字节。这意味着，解压软件需要从ZIP文件开头跳过60个字节，就能找到中央目录（即 PK\x01\x02 签名）</td></tr><tr><td style="text-align:center">00 00</td><td style="text-align:center">ZIP 文件注释长度（0表示ZIP文件没有全局注释）</td></tr><tr><td style="text-align:center">无</td><td style="text-align:center">ZIP文件注释内容（因为注释长度为0，所以这里没有数据）</td></tr></tbody></table></div><h3 id="伪加密原理"><a href="#伪加密原理" class="headerlink" title="伪加密原理"></a>伪加密原理</h3><p>在一个<strong>正常、健康的ZIP文件</strong>中，对于同一个文件条目，其压缩源文件数据区和压缩源文件目录区中的“全局方式位标记”（即加密标志）<strong>必须完全一致</strong>。</p><p>如：</p><p><img src="http://pic.czxh.top/pic/202510311730437.png" alt="image-20251031173026383"></p><p>而解压软件处理ZIP文件通常分两步：</p><p>步骤一：列出文件列表</p><p>软件首先读取ZIP文件末尾的<strong>中央目录（目录区）</strong>，这里包含了所有文件的索引信息（文件名、加密标志等），软件根据这里的信息向用户展示文件列表，并给加密文件打上“*”的图标。</p><p>步骤二：解压具体文件</p><p>当用户选择解压一个文件时，软件根据中央目录记录的指针，找到文件对应的<strong>本地文件头（数据区）</strong>，软件依据<strong>数据区</strong>中的标志位来执行实际的解压操作。</p><p>伪加密，则是在一个正常未加密的zip文件上进行修改：将压缩源文件目录区的全局方式位标记改为加密的状态，这样，压缩软件首先读取目录区，就会认为“这是一个加密文件”，从而向用户索要密码。（但实际上，文件根本没有加密，这也是“伪加密”叫法的由来。）</p><p>例如：</p><p><img src="http://pic.czxh.top/pic/202510311745846.png" alt="image-20251031174523805"></p><p>这里将00 00改为09 00，压缩软件就会显示加密：</p><p><img src="http://pic.czxh.top/pic/202510311746413.png" alt="image-20251031174631352"></p><blockquote><p>经过实测，7-Zip检测的是数据区的全局方式位标记，其他解压软件，例如BandZip和WinRAR检测目录区的全局方式位标记，这三种软件都只检测一位，并不会检测另一个位置，同时也不会进行报错。</p></blockquote><p>你可能会好奇，为什么这里非得改成09而不是其它数字呢？</p><p>这与压缩软件判断通过全局方式位标记判定加密的逻辑有关：</p><p>全局方式位标记是一个<strong>16位的二进制数</strong>（在ZIP文件中以2个字节表示），在这16个位中，<strong>最低位</strong>（Least Significant Bit, 也称之为第0位）是<strong>加密的总开关</strong>。</p><p>在ZIP文件中，这2个字节是<strong>小端序</strong>存储的。例如，你看到 <code>00 00</code>，实际值应为 <code>0x0000</code>。</p><p>对应的二进制数为：<code>0000 0000 0000 0000</code>，最低位为<code>0</code>，因此判定为未加密，压缩软件会直接解压。</p><p>而<code>09 00</code>，对应二进制数：<code>0000 0000 0000 1001</code>，最低位为<code>1</code>，因此会判定为加密。</p><p>不同的加密算法也具有不同的详细特征：</p><div class="table-container"><table><thead><tr><th style="text-align:left">加密算法</th><th style="text-align:left">全局方式位标记 (二进制)</th><th style="text-align:left">典型十六进制值</th><th style="text-align:left">原理与特点</th></tr></thead><tbody><tr><td style="text-align:left">未加密</td><td style="text-align:left">xxxx xxxx xxxx xxx0</td><td style="text-align:left"><code>00 00</code>, <code>08 00</code></td><td style="text-align:left">第0位 = 0。总开关关闭，文件未加密。</td></tr><tr><td style="text-align:left">PKWARE 传统加密</td><td style="text-align:left">xxxx xxxx xxxx xxx1</td><td style="text-align:left"><code>01 00</code>, <code>09 00</code></td><td style="text-align:left">第0位 = 1，且第6位和第11位均为0。这是ZIP格式最初定义的弱加密算法。</td></tr><tr><td style="text-align:left">AES 加密</td><td style="text-align:left">xxxx xxx1 xxxx 1xx1</td><td style="text-align:left"><code>01 09</code>, <code>01 41</code>, <code>01 63</code></td><td style="text-align:left">第0位=1（加密），且第6位=1，第11位=1。这是WinZip开发并标准化的强加密。</td></tr></tbody></table></div><p>但是总的来说，不管哪种加密，第0位都是决定加密的总开关，当第0位为0时，对应的十六进制值为偶数值，当第0为为1时，对应的十六进制值为奇数值，因此，我们才有了通过判定奇偶值来判断加密的说法。</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>在CTF 比赛题目中，涉及到伪加密类型，我们需要同时分析zip的压缩源文件数据区和压缩源文件目录区，判定其是否为伪加密，再通过修改目录区的全局方式位标记来破解伪加密。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>windows11还原磁贴功能</title>
+      <link href="/2025/10/28/windows11%E8%BF%98%E5%8E%9F%E7%A3%81%E8%B4%B4%E5%8A%9F%E8%83%BD/"/>
+      <url>/2025/10/28/windows11%E8%BF%98%E5%8E%9F%E7%A3%81%E8%B4%B4%E5%8A%9F%E8%83%BD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="windows11还原磁贴功能"><a href="#windows11还原磁贴功能" class="headerlink" title="windows11还原磁贴功能"></a>windows11还原磁贴功能</h1><h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="http://pic.czxh.top/pic/202510281319119.png" alt="image-20251028131929608"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>若要在Windows11上使用磁贴开始菜单，需要使用第三方工具:</p><p><a href="https://github.com/valinet/ExplorerPatcher">https://github.com/valinet/ExplorerPatcher</a></p><p>运行后,任务栏右键会多出属性</p><p><img src="http://pic.czxh.top/pic/202510281701939.png" alt="image-20251028170153895"></p><p>点击进行配置</p><p><img src="http://pic.czxh.top/pic/202510281702167.png" alt="image-20251028170234130"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>强网杯S9部分题目复现(MISC)</title>
+      <link href="/2025/10/28/%E5%BC%BA%E7%BD%912025%E5%A4%8D%E7%8E%B0wp/"/>
+      <url>/2025/10/28/%E5%BC%BA%E7%BD%912025%E5%A4%8D%E7%8E%B0wp/</url>
+      
+        <content type="html"><![CDATA[<h1 id="强网杯S9部分题目复现-MISC"><a href="#强网杯S9部分题目复现-MISC" class="headerlink" title="强网杯S9部分题目复现(MISC)"></a>强网杯S9部分题目复现(MISC)</h1><h2 id="谍影重重-6-0"><a href="#谍影重重-6-0" class="headerlink" title="谍影重重 6.0"></a>谍影重重 6.0</h2><p>附件一个流量包和一个加密压缩包,很显然需要我们分析流量找到密码</p><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510281307569.png" alt="image-20251028130726483"></p><p>流量包传输的是音频(根据题目提示以及流量包分析),因此需要想办法提取出音频来.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JAVA入门笔记</title>
       <link href="/2025/10/27/JAVA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/"/>
       <url>/2025/10/27/JAVA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
@@ -129,33 +210,6 @@
             <tag> web </tag>
             
             <tag> 前端 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Misc-zip文件分析</title>
-      <link href="/2025/05/11/misc-%E5%8E%8B%E7%BC%A9%E5%8C%85/"/>
-      <url>/2025/05/11/misc-%E5%8E%8B%E7%BC%A9%E5%8C%85/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Misc-zip文件分析"><a href="#Misc-zip文件分析" class="headerlink" title="Misc-zip文件分析"></a>Misc-zip文件分析</h1><blockquote><p>参考文档：<a href="https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458483850&amp;idx=1&amp;sn=b2a624f6753f81072ce9b78419dbc865&amp;chksm=b18e4c0086f9c516e126950fb9fb5d2bcdbd31b147374c693b37dcbb1fff6e5dfaaca4396605&amp;scene=27">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458483850&amp;idx=1&amp;sn=b2a624f6753f81072ce9b78419dbc865&amp;chksm=b18e4c0086f9c516e126950fb9fb5d2bcdbd31b147374c693b37dcbb1fff6e5dfaaca4396605&amp;scene=27</a></p></blockquote><h2 id="案例分析："><a href="#案例分析：" class="headerlink" title="案例分析："></a>案例分析：</h2><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131531779.jpeg" alt=""></p><p>如你所见，这，是一张图片，我们想把它发送给某位朋友，但是却不想让其他的人看到。</p><p>于是，我们选择将其压缩为加密压缩包：</p><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131531979.png" alt=""></p><p>如此一来，只有你和你的朋友（知道密码的人）可以打开压缩包，而没有密码的，则无法解压，也就看不到图片。</p><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131531291.png" alt=""></p><p>你可能会想，这样就足够保密了，但是，事实真正如此吗？？？</p><p>对此，正在学习misc的黑客小明表示不屑，声称不到30秒就可以破解这个加密的压缩包！</p><p>当然，是不知道密码的前提下！</p><p>那么，其中究竟蕴含着什么技术原理和知识呢？</p><p>这便是CTF-MISC中的常见题目类型——压缩包分析破解</p><p>ZIP压缩包是CTF-MISC方向中最常见的题型之一，涉及文件结构分析、密码破解、数据修复等多个技术点。</p><hr><h2 id="一、ZIP文件结构"><a href="#一、ZIP文件结构" class="headerlink" title="一、ZIP文件结构"></a>一、ZIP文件结构</h2><p>一个zip文件由三部分组成：压缩源文件数据区+压缩源文件目录区+压缩源文件目录结束标志</p><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131531523.png" alt=""></p><h3 id="压缩源文件数据区"><a href="#压缩源文件数据区" class="headerlink" title="压缩源文件数据区"></a><strong>压缩源文件数据区</strong></h3><p>在这个数据区中每一个压缩的源文件/目录都是一条记录，记录的格式如下：<br>[文件头+ 文件数据 + 数据描述符]</p><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131531615.png" alt=""></p><p>这个数据描述符只在全局方式位标记的第３位设为１时才存在，紧接在压缩数据的最后一个字节后。这个数据描述符只用在不能对输出的 ZIP 文件进行检索时使用。例如：在一个不能检索的驱动器（如：磁带机上）上的 ZIP 文件中。如果是磁盘上的ZIP文件一般没有这个数据描述符。</p><p>50 4B 03 04：这是头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密） 头文件标记后2bytes<br>08 00：压缩方式</p><h3 id="压缩源文件目录区"><a href="#压缩源文件目录区" class="headerlink" title="压缩源文件目录区"></a><strong>压缩源文件目录区</strong></h3><p>在这个数据区中每一条纪录对应在压缩源文件数据区中的一条数据。</p><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131531686.png" alt=""></p><p>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，伪加密的关键） 目录文件标记后4bytes<br>08 00：压缩方式</p><h3 id="压缩源文件目录结束标志"><a href="#压缩源文件目录结束标志" class="headerlink" title="压缩源文件目录结束标志"></a><strong>压缩源文件目录结束标志</strong></h3><p><img src="https://czxh.oss-cn-beijing.aliyuncs.com/pic/202510131532344.png" alt=""></p><p>50 4B 05 06：目录结束标记</p><p>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号</p><hr><h2 id="二、常见题型"><a href="#二、常见题型" class="headerlink" title="二、常见题型"></a>二、常见题型</h2><h3 id="伪加密"><a href="#伪加密" class="headerlink" title="伪加密"></a>伪加密</h3><p><strong>原理</strong>：通过修改加密标志位误导解压软件</p><ul><li><strong>检测方法</strong>： <ul><li>放入随波逐流进行检测</li><li>查看<code>hex</code>编辑器中<code>General Purpose Bit Flag</code>字段<ul><li>伪加密：第0位为1（0x0001）</li><li>真加密：第6位为1（0x0041）</li></ul></li></ul></li></ul><h3 id="密码爆破"><a href="#密码爆破" class="headerlink" title="密码爆破"></a>密码爆破</h3><ul><li><strong>适用场景</strong>：弱密码或已知字符集</li><li><strong>工具推荐</strong>：<ul><li><code>ARCHPR</code>（图形化界面）</li></ul></li></ul><h3 id="明文攻击"><a href="#明文攻击" class="headerlink" title="明文攻击"></a>明文攻击</h3><ul><li><strong>前提条件</strong>：<ul><li>已知压缩包内至少一个文件的完整内容</li><li>使用相同加密算法和相同密码</li></ul></li><li><strong>操作步骤</strong>：<ol><li>用已知文件生成无加密的参考ZIP</li><li>使用<code>ARCHPR</code>进行爆破</li></ol></li></ul><h3 id="CRC32碰撞"><a href="#CRC32碰撞" class="headerlink" title="CRC32碰撞"></a>CRC32碰撞</h3><ul><li><strong>适用场景</strong>：小文件（&lt;6KB）无加密</li><li><strong>实现原理</strong>：通过CRC校验值逆向文件内容</li><li><strong>工具推荐</strong>：<ul><li><code>python</code>的<code>zlib</code>库</li><li><code>crc32killer</code>（自动化脚本）</li></ul></li><li><p><strong>示例代码</strong>：</p></li><li><pre><code class="lang-python">import zlibtarget_crc = 0x12345678  # 替换为实际CRC值for i in range(0xFFFFFFFF):    if zlib.crc32(bytes([i])) == target_crc:        print(bytes([i]))        break</code></pre></li></ul><hr><h2 id="三、进阶技巧与特殊题型"><a href="#三、进阶技巧与特殊题型" class="headerlink" title="三、进阶技巧与特殊题型"></a>三、进阶技巧与特殊题型</h2><h3 id="嵌套压缩包"><a href="#嵌套压缩包" class="headerlink" title="嵌套压缩包"></a>嵌套压缩包</h3><ul><li><strong>常见形式</strong>：<ul><li>ZIP套娃（多层嵌套）</li><li>混合文件类型（ZIP内嵌RAR/7z）</li></ul></li><li><strong>解决方法</strong>：<ul><li>编写脚本自动化提取</li><li>使用<code>binwalk</code>检测隐藏文件</li></ul></li></ul><h3 id="文件修复"><a href="#文件修复" class="headerlink" title="文件修复"></a>文件修复</h3><ul><li><strong>常见问题</strong>：<ul><li>文件头损坏（修复签名<code>50 4B 03 04</code>）</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Misc </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-            <tag> Misc </tag>
             
         </tags>
       
@@ -349,7 +403,7 @@
       <link href="/2016/03/30/flag/"/>
       <url>/2016/03/30/flag/</url>
       
-        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="b5e2741ca5d7a107881c7eef812073083d6fbd5bd19761d0d3f331a7bf682e43">072c2e61e0fc96379b99a2ae58de6f039b92399abfd8b778c6c0a47eada94e88e11ff5ad88d3a2f399c098cc03623eaba8c137c19a2adb954940255b114688c9b9446262128647d445c9a67329fe16ab921537ac15b44cb3555a2a7bec296ce4a52c857fd974117e27678d9bbd0d24b0686f003d0b4cac04003de52ff81514a3e558140fec2c571eb553c5d85106cd5527bc1153dec71c8517d5035157c1a46079c51f23600b8d3fe0644fc4a431f85a0d0206740f4bdd5e38bcf791e006603e89dcb3e1f0f1b3e7d6f76e5567d3f03f34009222b574d071fdd494f23ec468b92b779458a268f92ce82410800f17037d7467337d9bf2311ea1f25a26d5270e31313f8db1d04a6abb7f8ae5e951ff9a12a3901321b70db4482ca9f42ddab347f1198db17af2e82da3e57b3f20b5e7cd1ed486eaa7795b7f9b17d12255f8ca4f4d589253c04b276f36032ab326966e5ce7e71af96bfa833976aa3203de51a8e026</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">该文章已加密，请输入密码</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="74b6eb19180aca111d72b0dcc8803640e1aab9bc02060358d657222a43fff3e5">072c2e61e0fc96379b99a2ae58de6f039b92399abfd8b778c6c0a47eada94e88e11ff5ad88d3a2f399c098cc03623eaba8c137c19a2adb954940255b114688c9b9446262128647d445c9a67329fe16ab921537ac15b44cb3555a2a7bec296ce4a52c857fd974117e27678d9bbd0d24b0686f003d0b4cac04003de52ff81514a3e558140fec2c571eb553c5d85106cd5527bc1153dec71c8517d5035157c1a46079c51f23600b8d3fe0644fc4a431f85a0d0206740f4bdd5e38bcf791e006603e89dcb3e1f0f1b3e7d6f76e5567d3f03f34009222b574d071fdd494f23ec468b92b779458a268f92ce82410800f17037d7467337d9bf2311ea1f25a26d5270e31313f8db1d04a6abb7f8ae5e951ff9a12a3901321b70db4482ca9f42ddab347f1198db17af2e82da3e57b3f20b5e7cd1ed486eaa7795b7f9b17d12255f8ca4f4d589253c04b276f36032ab326966e5ce702f74bd8598121d5f6a302bb088023407b45fbea6cb95564873bd985710e8943e129ba1827d0f2f42cd15f5cfd3c8041876170957ad5fd9dc585cfeba805629f7414553e66c434b8b96360be6aa8b307</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">该文章已加密，请输入密码</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       
       
       <categories>
