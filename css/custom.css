@@ -774,3 +774,44 @@ body.home #page-header .site-title,
 .status-tag-dark-yellow { background-color: #f0b606; }
 .status-tag-red { background-color: #b90000; }
 
+
+/* 加密界面样式 */
+#hexo-blog-encrypt {
+  background: var(--anzhiyu-card-bg);
+  border: var(--style-border);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  box-shadow: var(--anzhiyu-shadow-border);
+  text-align: center;
+}
+
+.hbe-input-container {
+  margin-bottom: 1rem;
+}
+
+#hbePass {
+  padding: 10px 15px;
+  border: var(--style-border);
+  border-radius: 8px;
+  width: 200px;
+  margin-right: 10px;
+  background: var(--anzhiyu-background);
+  color: var(--anzhiyu-fontcolor);
+}
+
+#hexo-blog-encrypt button {
+  padding: 10px 20px;
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#hexo-blog-encrypt button:hover {
+  background: var(--anzhiyu-theme);
+  transform: translateY(-2px);
+  box-shadow: var(--anzhiyu-shadow-theme);
+}
