@@ -1,6 +1,6 @@
 (function() {
     const STATUS_CACHE_KEY = "statusTagsData";
-    const STATUS_JSON_URL = "http:czxh.top"; // 这里设为你自己的url
+    const STATUS_JSON_URL = "https://czxh.top"; // 这里设为你自己的url
 
     let latestData = [];
 
